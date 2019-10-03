@@ -11,7 +11,7 @@ int main(){
 	cout << "Enter y: " << endl;
 	cin >> y;
 
-	line_x1 = (2 * y - 4) / 5;
+	line_x1 = (2 * y - 4) / 5; 
 	line_x2 = (-2 * y + 4) / 5;
 
 	line_y1 = -2.5 * x + 2;
@@ -20,11 +20,16 @@ int main(){
 
 	/*
 	y = -3
-	y = 2x+2
-	y = -2x+2
+	y = 2.5x+2
+	y = -2.5x+2
 	*/
 
-
+	if (((-2 <= 2.5 * x - y) && (2 >= 2.5 * x + y )) && (y >= -3) && (y <= 2)){
+		cout << "This point in triangle." << endl;
+	}
+	else{
+		cout << "This point out triangle." << endl;
+	}
 
 	return 0;
 }
