@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int funcInt(float a, float b, float c, int x){
+double funcInt(float a, float b, float c, int x){
     if ((x < 0) && (b != 0)){
         cout << "I1" << endl;
         return (a - (x / (10 + b)));
@@ -41,6 +41,7 @@ int main(){
     cin >> a;
     cin >> b;
     cin >> c;
+
 
     cout << "Enter interval: " << endl;
     cin >> x1;
