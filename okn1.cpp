@@ -51,7 +51,7 @@ int main(){
     cin >> x_step;
 
     for(x_step; x1 < x2; x1 += x_step){
-        if (((a - static_cast<int>(a) == 0) || (b - static_cast<int>(b) == 0)) && (c - static_cast<int>(c) == 0)){
+        if (((a - static_cast<int>(a) == 0) || (b - static_cast<int>(b) == 0)) && (c - static_cast<int>(c) == 0) && (c != 0)){
             cout << "Result: " << funcInt(a, b, c, x + x_step) << endl;
         }
         else{

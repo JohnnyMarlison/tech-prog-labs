@@ -11,8 +11,8 @@ int main(){
     const int size = 100;
     float arr[size];
     float max = -10000, sum = 0, last_posit = 0, a, b;
-    float N; 
-    int iter1 = 0;
+    int N; 
+    int iter1 = 0, value = 0;
     
     cout << "Enter count nums: ";
     cin >> N;
@@ -29,8 +29,8 @@ int main(){
 
     }
 
-    for(int iter = N; iter > 0 ; --iter){
-    	if(arr[iter] > 0 && arr[iter + 1] < 0){
+    for(int iter = N - 1; iter > 0 ; --iter){
+    	if(arr[iter] > 0 && last_posit == 0){
     		last_posit = arr[iter];
     		break;
     	}
@@ -43,31 +43,30 @@ int main(){
     cout << "Entet interval [a,b]: " << endl;
     cin >> a >> b;
     cout << endl;
-/*
-    for(int iter2 = a; iter2 < b; ++iter2){
-    	arr[iter2 - 1] = 0;
-    	arr[iter2] = 0;
-    } 
-*/
-  	while(iter1 < N)
-  		if(arr[iter1] <= b && arr[iter1] >= a){
+    
+  	while(iter1 < N){
+  		if(abs(arr[iter1]) <= b && abs(arr[iter1]) >= a){
   			N -= 1;
+  			value += 1;
   			for (int iter2 = iter1; iter2 < N; ++iter2){
   				arr[iter2] = arr[iter2 + 1];
   			}
   		}
   		else
   			iter1 += 1;
-  		
-	for (int iter = 0; iter < N; ++iter)
-		arr[iter] = 0; 
+	}
 
+
+	for (N; N < N + value; ++N){
+		value -= 1;
+		arr[N] = 0; 
+	}
 
     for(int iter = 0; iter < N; ++iter){
     	cout << arr[iter] << " ";
     } 
     
-    cout << " " << endl;
+    cout << "\n";
     cout << "Last positive num = " << last_posit << endl;
     cout << "Max = " << max << endl;
     cout << "Sum = " << sum << endl;
