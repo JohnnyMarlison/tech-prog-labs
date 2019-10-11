@@ -5,19 +5,6 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-int funcNum(int nums, int count){
-	if(nums > 9 && nums < 100){
-		if(nums / 10 != 0){
-			count += 1;
-			cout << "True " << endl;
-			//cout << "Count" << endl;
-		}	
-	}
-	else{
-		cout <<	"Wrong numder. " << endl;
-	}
-}
-
 int main(){
 	cout << "Start program ... " << endl;
 
@@ -26,11 +13,11 @@ int main(){
 	cin >> N;
 
 	for(int iter = 0; N >= iter; ++iter){
-		cout << "Nums = " << endl;
+		cout << "Nums = ";
 		cin >> nums;
-		cout << "Natural num : " << funcNum(nums, count) << endl;
-		if (iter == N)
-			cout << funcNum(num, count) << endl;
+		if(nums > 9 && nums < 100 && nums % 10 != 0 && nums % 2 == 0)
+			cout << "Count: " << (count += 1) << endl;
+		
 	}
 
 	cout << "Program finished. " << endl;

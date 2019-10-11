@@ -1,28 +1,24 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using std::cout;
 using std::cin;
 using std::endl;
 
-unsigned int perfectNum(unsigned int N){
-
-}
-
-
 int main(){
 	cout << "Start program ... " << endl;
 
-	unsigned int N, nums, iter;
-	//cout << "Enter sequence N: " << endl;
-	//cin >> N;
+	unsigned int nums;
 
-	for (cout << "Enter sequence N: ",cin >> N, iter = 1; N <= iter; ++iter){
-		cout << "Nums = " << endl;
+	cout << "Enter Nums: " << endl;
+	for(int iter = 0; nums != 0; ++iter){
 		cin >> nums;
-		cout << "Perfect num : " << perfectNum(nums) << endl;
+		int fact = 1;
+		for(int iter1 = 1; iter1 <= nums; ++iter1){
+			fact *= iter1;
+			cout << "Factorial: " << fact << endl;
+		}
 	}
-
 	cout << "Program finished. " << endl;
 	return 0;
 }
