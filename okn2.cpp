@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <ctime>
+#include <random>
 
 using std::cout;
 using std::cin;
@@ -11,15 +13,24 @@ int main(){
     const int size = 100;
     float arr[size];
     float max = -10000, sum = 0, last_posit = 0, a, b;
-    int N; 
-    int iter1 = 0, value = 0;
-    
+    int N;
+    int iter1 = 0, value = 0, first, last;
+/*
     cout << "Enter count nums: ";
     cin >> N;
+
     cout << "Enter nums: " << endl;
 
     for(int iter = 0; iter < N; ++iter){
     	cin >> arr[iter];
+    }
+*/
+    cout << "Enter interval nums: " << endl;
+    cin >> first >> last;
+
+    for(first; first < last; ++first){
+        arr[first] = (first + rand() % (last - first)) / 1000.0;
+        cout << arr[first] << endl;
     }
 
     for(int iter = 0; iter < N; ++iter){
@@ -43,7 +54,7 @@ int main(){
     cout << "Entet interval [a,b]: " << endl;
     cin >> a >> b;
     cout << endl;
-    
+
   	while(iter1 < N){
   		if(abs(arr[iter1]) <= b && abs(arr[iter1]) >= a){
   			N -= 1;
@@ -59,13 +70,13 @@ int main(){
 
 	for (N; N < N + value; ++N){
 		value -= 1;
-		arr[N] = 0; 
+		arr[N] = 0;
 	}
 
     for(int iter = 0; iter < N; ++iter){
     	cout << arr[iter] << " ";
-    } 
-    
+    }
+
     cout << "\n";
     cout << "Last positive num = " << last_posit << endl;
     cout << "Max = " << max << endl;

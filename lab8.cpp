@@ -16,8 +16,7 @@ int main(){
 		cout << "Nums = ";
 		cin >> nums;
 		if(nums > 9 && nums < 100 && nums % 10 != 0 && nums % 2 == 0)
-			cout << "Count: " << (count += 1) << endl;
-		
+			cout << "Count: " << (count += 1) << endl;	
 	}
 
 	cout << "Program finished. " << endl;

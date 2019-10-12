@@ -13,12 +13,11 @@ int main(){
 	cout << "Enter Nums: " << endl;
 	for(int iter = 0; nums != 0; ++iter){
 		cin >> nums;
-
 		if(max < nums){
 			max = nums;
 			cout << "Max = " << max << endl;
 		}
-		else 
+		else
 			cout << "Max = " << max << endl;
 	}
 

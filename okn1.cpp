@@ -16,7 +16,6 @@ double funcInt(float a, float b, float c, int x){
         cout << "I3" << endl;
         return (3 * x + (2 / c));
     }
-
 }
 
 double funcFloat(float a, float b, float c, float x){
@@ -41,7 +40,6 @@ int main(){
     cin >> a;
     cin >> b;
     cin >> c;
-
 
     cout << "Enter interval: " << endl;
     cin >> x1;
