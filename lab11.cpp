@@ -1,24 +1,20 @@
 #include <iostream>
-#include <cmath>
 
 using std::cout;
 using std::cin;
 using std::endl;
 
 int main(){
-	cout << "Start program ... " << endl;
+	printf("Program started ...\n");
+	unsigned long long int nums, fact;
 
-	unsigned int nums;
-
-	cout << "Enter Nums: " << endl;
 	for(int iter = 0; nums != 0; ++iter){
-		cin >> nums;
-		int fact = 1;
-		for(int iter1 = 1; iter1 <= nums; ++iter1){
-			fact *= iter1;
-			cout << "Factorial: " << fact << endl;
-		}
+		printf("Enter n: ");
+		scanf("%llu", &nums);
+		fact = 1;
+		for(unsigned long long int iter1 = 1; iter1 <= nums; fact *= (iter1++));
+		printf("n! = %llu\n", fact);
 	}
-	cout << "Program finished. " << endl;
+	printf("Program finished.\n");
 	return 0;
 }
