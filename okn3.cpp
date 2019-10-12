@@ -1,28 +1,36 @@
 #include <iostream>
 #include <cmath>
+#include <ctime>
+#include <iomanip>
+//#define size 10000
 
 using std::cout;
 using std::cin;
+using std::setw;
 
-void generateMatrix(int* arr[],int n, int m){
-    for (int iter = 0; iter < n; ++iter){
-        for(int iter2 = 0; iter2 < m; ++iter2){
-            cout << arr[iter][iter2] << " ";
+void generateMatrix(int n){
+    cout << "\n";
+    int arr[n][n];
+    for(int iter = 0; iter < n; ++iter){
+        for(int iter2 = 0; iter2 < n; ++iter2){
+            arr[iter][iter2] = 10 - rand() % 20;
+            cout << setw(4) << arr[iter][iter2] ;
         }
         cout << "\n";
     }
+    cout << "\n";
 }
 
 int main(){
-    cout << "Start program ..." << "\n";
-    const int size1 = 10000;
-    const int size2 = 10000;
-    int arr[size1][size2], n, m;
+    cout << "Start program ...\n";
+/*  
+    int arr[size1][size2], m;
+*/  int n;
+    cout << "Enter size matrix N x N: ";
+    cin >> n;
 
-    cout << "Enter size matrix N x M: ";
-    cin >> n >> m;
+    generateMatrix(n);
 
-    generateMatrix(arr);
-
+    cout << "Program finished.\n";
     return 0;
 }

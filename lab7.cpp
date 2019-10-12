@@ -18,6 +18,7 @@ int main(){
 		cout << sin(iter2) * sin(iter2) << endl;
 		cout << iter2 << endl;
 	}
+	
 	cout << "Program finished. " << endl;
 	return 0;
 }
