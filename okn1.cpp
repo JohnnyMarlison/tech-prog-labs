@@ -4,11 +4,11 @@
 using namespace std;
 
 double funcInt(float a, float b, float c, int x){
-    if ((x < 0) && (b != 0)){
+    if ((x > 0) && (b != 0)){
         cout << "I1" << endl;
         return (a - (x / (10 + b)));
     }
-    if ((x > 0) && (b == 0)){
+    if ((x < 0) && (b == 0)){
         cout << "I2" << endl;
         return ((x - a) / (x - c));
     }
@@ -19,11 +19,11 @@ double funcInt(float a, float b, float c, int x){
 }
 
 double funcFloat(float a, float b, float c, float x){
-    if ((x < 0) && (b != 0)){
+    if ((x > 0) && (b != 0)){
         cout << "F1" << endl;
         return (a - (x / (10 + b)));
     }
-    if ((x > 0) && (b == 0)){
+    if ((x < 0) && (b == 0)){
         cout << "F2" << endl;
         return ((x - a) / (x - c));
     }
@@ -33,8 +33,12 @@ double funcFloat(float a, float b, float c, float x){
     }
 }
 
+int convert(float value){
+    return static_cast<int>(value);
+}
+
 int main(){
-    double a, b, c, x, x1, x2, x_step, result;
+    double a, b, c, x, x1, x2, result;
 
     cout << "Enter a, b, c: " << endl;
     cin >> a;
@@ -46,14 +50,15 @@ int main(){
     cin >> x2;
 
     cout << "Enter step: " << endl;
-    cin >> x_step;
+    cin >> x;
 
-    for(x_step; x1 < x2; x1 += x_step){
-        if (((a - static_cast<int>(a) == 0) || (b - static_cast<int>(b) == 0)) && (c - static_cast<int>(c) == 0) && (c != 0)){
-            cout << "Result: " << funcInt(a, b, c, x + x_step) << endl;
+    for(x1; x1< x2; x1 += x){
+        if(((convert(a) == 0 || convert(b) == 0) && convert(c) == 0) && x != c && b != -10 && c!= 0){
+        //if (((a - static_cast<int>(a) == 0) || (b - static_cast<int>(b) == 0)) && (c - static_cast<int>(c) == 0) && (c != 0) && c > 0){
+            cout << "Result: " << funcInt(a, b, c, x + x) << endl;
         }
         else{
-            cout << "Resutl: " << funcFloat(a, b, c, x + x_step) << endl;
+            cout << "Resutl: " << funcFloat(a, b, c, x + x) << endl;
         }
     }
 
