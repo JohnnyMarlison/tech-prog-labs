@@ -15,7 +15,7 @@ using std::memset;
 /*function for enter matrix elements*/
 void enterMatrix(int arr[][size], int column[size], int n){
     cout << "\n";
-    
+
     /*input*/
     for(int iter = 0; iter < n; ++iter){
         for(int iter2 = 0; iter2 < n; ++iter2){
@@ -28,7 +28,7 @@ void enterMatrix(int arr[][size], int column[size], int n){
     /*output*/
     for(int iter = 0; iter < n; ++iter){
         for(int iter2 = 0; iter2 < n; ++iter2){
-            cout << setw(4) << arr[iter][iter2] << " ";        
+            cout << setw(4) << arr[iter][iter2] << " ";
         }
         cout << "\n";
     }
@@ -38,7 +38,7 @@ void enterMatrix(int arr[][size], int column[size], int n){
 /*function generate matrix with rand*/
 void generateMatrix(int arr[][size], int column[size], int n){
     cout << "\n";
-    
+
     /*generate & output*/
     srand(time(0));
     for(int iter = 0; iter < n; ++iter){
@@ -63,7 +63,7 @@ void uSumColumns(int arr[][size], int column[size], int n){
                 break;
             }
         }
-    }    
+    }
     /*output*/
     for (int iter = 0; iter < n; ++iter)
         if(column[iter] != 0)
@@ -91,7 +91,7 @@ void minSumDiagonal1(int arr[][size], int n){
 }
 */
 /*Minimal sum side diagonals*/
-void minSumDiagonal2(int arr[][size], int n){    
+void minSumDiagonal2(int arr[][size], int n){
     int count;
     int diagonals[n];
     memset(diagonals, 0, sizeof(diagonals));
@@ -101,7 +101,7 @@ void minSumDiagonal2(int arr[][size], int n){
                 if (count == iter1 + iter2)
                     diagonals[count] += abs(arr[iter1][iter2]);
             }
-        }    
+        }
     }
     int min = diagonals[0];
     for (count = 0; count < n; ++count){
@@ -111,9 +111,28 @@ void minSumDiagonal2(int arr[][size], int n){
     cout << "Minimal sum side diagonals: " << min << "\n";
 }
 
+/*
+void minSumDiagonal1(int arr[][size], int n){
+    int diagonals = abs(arr[n][0]);
+    int t1, t2;
+    for(int iter = 0; iter < n ; ++iter){
+        t1 = t2 = 0;
+        for(int iter2 = 1; iter2 < n - iter; ++iter2){
+            t1 += abs(arr[iter - iter2][iter2]);
+            t2 += abs(arr[iter2][iter + iter2]);
+        }
+        if (t1 < diagonals)
+            diagonals = t1;
+        if (t1 < diagonals)
+            diagonals = t2;
+    }
+    cout << "Minimal sum side diagonals: " << diagonals << "\n";
+}
+*/
+
 int main(){
     cout << "Start program ...\n";
-    
+
     int arr[size][size], column[size];
     int n, select;
 

@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
     srand(time(0));
     const int size = 1000;
     float arr[size];
-    float max = -10000, sum = 0, last_pos = 0, a, b;
+    float max = -10000, sum, last_pos = 0, a, b;
     int N;
     int iter1 = 0, value = 0, first, last;
 
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
     }
 
     /*last positive element*/
-    for(int iter = N; iter > 0; --iter){
+    for(int iter = N; iter >= 0; --iter){
         if (arr[iter] > 0){
             last_pos = arr[iter];
             break;
@@ -42,8 +42,8 @@ int main(int argc, char* argv[]){
     }
 
     /*sum to last positive*/
-    for(int iter = 0; iter < last_pos; ++iter){
-        sum += arr[iter];
+    for(int iter = 0; iter < last_pos; iter++){
+        sum = sum + arr[iter];
     }
 
     for (int iter = 0; iter < N; ++iter){
@@ -66,10 +66,10 @@ int main(int argc, char* argv[]){
         else
             iter1 += 1;
     }
-    
+
     for (N; N < N + value; ++N){
         value -= 1;
-        arr[N] = 0; 
+        arr[N] = 0;
     }
 
     /*output*/
