@@ -72,7 +72,7 @@ void uSumColumns(int arr[][size], int column[size], int n){
             cout << setw(5) << "-";
 }
 
-/*Minimal sum side diagonals*//*
+/*Minimal sum side diagonals*/
 void minSumDiagonal1(int arr[][size], int n){
     int diagonals = abs(arr[0][n - 1]);
     int t1, t2;
@@ -89,8 +89,8 @@ void minSumDiagonal1(int arr[][size], int n){
     }
     cout << "Minimal sum side diagonals: " << diagonals << "\n";
 }
-*/
-/*Minimal sum side diagonals*/
+
+/*Minimal sum side diagonals*//*
 void minSumDiagonal2(int arr[][size], int n){
     int count;
     int diagonals[n];
@@ -105,28 +105,32 @@ void minSumDiagonal2(int arr[][size], int n){
     }
     int min = diagonals[0];
     for (count = 0; count < n; ++count){
-        if ((count != n / 2 - 1) && min > diagonals[count])
+        if ((count != n / 2 - count) && min > diagonals[count])
             min = diagonals[count];
+       // if ((count == n / 2 - 1) && min > diagonals[count])
+         //   min = diagonals[count];
     }
     cout << "Minimal sum side diagonals: " << min << "\n";
 }
 
 /*
 void minSumDiagonal1(int arr[][size], int n){
-    int diagonals = abs(arr[n][0]);
-    int t1, t2;
-    for(int iter = 0; iter < n ; ++iter){
-        t1 = t2 = 0;
-        for(int iter2 = 1; iter2 < n - iter; ++iter2){
-            t1 += abs(arr[iter - iter2][iter2]);
-            t2 += abs(arr[iter2][iter + iter2]);
+    int sum = 0;
+    for (int iter = 0; iter < n; ++iter){
+        for (int iter2 = 0; iter2 < n - iter - 1; ++iter2){
+            cout << setw(4) << arr[iter][iter2] << " ";
         }
-        if (t1 < diagonals)
-            diagonals = t1;
-        if (t1 < diagonals)
-            diagonals = t2;
+        cout << "\n";
     }
-    cout << "Minimal sum side diagonals: " << diagonals << "\n";
+    cout << "\n";
+
+    for (int iter = 1; iter < n; ++iter){
+        for (int iter2 = n - iter; iter2 < n; ++iter2){
+      	   cout << setw(4) << arr[iter][iter2] << " ";	
+        }
+        cout << "\n";
+    }
+    cout << "\n";
 }
 */
 
@@ -154,8 +158,8 @@ int main(){
     uSumColumns(arr, column, n);
     cout << "\n\n";
 
-    //minSumDiagonal1(arr, n);
-    minSumDiagonal2(arr, n);
+    minSumDiagonal1(arr, n);
+    //minSumDiagonal2(arr, n);
     cout << "Program finished.\n";
     return 0;
 }
