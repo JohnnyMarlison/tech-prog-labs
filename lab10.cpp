@@ -10,6 +10,7 @@ int main(){
 
 	unsigned int N, nums, sum_cub = 0;
 
+	/*cub sum elements num*/
 	cout << "Enter Nums: " << endl;
 	for(int iter = 0; nums != 0; ++iter){
 		cin >> nums;
@@ -17,7 +18,7 @@ int main(){
 			sum_cub += ((nums % 10) * (nums % 10) * (nums % 10));
 			nums /= 10;
 		}
-		cout << "Sum = " << sum_cub << endl;	
+		cout << "Sum = " << sum_cub << endl;
 	}
 
 	cout << "Program finished. " << endl;

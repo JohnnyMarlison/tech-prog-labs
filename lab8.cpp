@@ -13,11 +13,11 @@ int main(){
 	cin >> N;
 
 	for(int iter = 0; N >= iter; ++iter){
-		cout << "Nums = ";
 		cin >> nums;
 		if(nums > 9 && nums < 100 && nums % 10 != 0 && nums % 2 == 0)
-			cout << "Count: " << (count += 1) << endl;	
+			count += 1;
 	}
+	cout << "Count: " << count << "\n";
 
 	cout << "Program finished. " << endl;
 	return 0;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <limits.h>
 
 using std::cout;
 using std::cin;
@@ -8,8 +9,9 @@ using std::endl;
 int main(){
 	cout << "Start program ... " << endl;
 
-	unsigned int N, nums, max = 0;
+ 	int N, nums, max = -INT_MAX;
 
+	/*max num while != 0*/
 	cout << "Enter Nums: " << endl;
 	for(int iter = 0; nums != 0; ++iter){
 		cin >> nums;

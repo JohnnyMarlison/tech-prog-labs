@@ -6,9 +6,9 @@ using std::cin;
 
 /*Fucntion prime num*/
 bool primeNum(unsigned long long int nums){
-    if (nums >= 1){
-        for (int i = 2; i < nums; i++)
-            if (nums % i == 0)
+    if(nums >= 1){
+        for(int i = 2; i < nums; i++)
+            if(nums % i == 0)
                 return false;
         return true;
     }
@@ -18,13 +18,13 @@ bool primeNum(unsigned long long int nums){
 
 /*Fucntion perfect num*//*
 unsigned long long int perfectNum(unsigned int nums){
-    
+
 }
 
 /*count nums prime & perfect*/
 unsigned int count(unsigned long long int nums){
     unsigned int count = 0;
-    if (primeNum(nums) == true)
+    if(primeNum(nums) == true)
         count += 1;
     return count;
 }
@@ -41,7 +41,7 @@ int main(){
         cin >> nums;
         primeNum(nums);
         //perfectNum(nums);
-        cout << "Count: " << count(nums);
+        cout << "Count: " << count(nums) << "\n";
         //cout << "Prime: " << primeNum(nums) << "\n";
 
     }

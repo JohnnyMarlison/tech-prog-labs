@@ -7,9 +7,11 @@ using std::endl;
 int main(){
 	printf("Program started ...\n");
 	unsigned long long int nums, fact;
-
-	for(int iter = 0; nums != 0; ++iter){
-		printf("Enter n: ");
+	int N;
+	printf("Enter N: ");
+	scanf("%d",&N);
+	/*factorial*/
+	for(int iter = 0; iter < N; ++iter){
 		scanf("%llu", &nums);
 		fact = 1;
 		for(unsigned long long int iter1 = 1; iter1 <= nums; fact *= (iter1++));
