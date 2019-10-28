@@ -3,14 +3,12 @@
 #include <ctime>
 #include <iomanip>
 #include <cstdlib>
-#include <cstring>
 
 #define size 100
 
 using std::cout;
 using std::cin;
 using std::setw;
-using std::memset;
 
 /*function for enter matrix elements*/
 void enterMatrix(int arr[][size], int column[size], int n){
@@ -36,14 +34,14 @@ void enterMatrix(int arr[][size], int column[size], int n){
 }
 
 /*function generate matrix with rand*/
-void generateMatrix(int arr[][size], int column[size], int n){
+void generateMatrix(int arr[][size], int column[size], int n, int a, int b){
     cout << "\n";
 
     /*generate & output*/
     srand(time(0));
     for(int iter = 0; iter < n; ++iter){
         for(int iter2 = 0; iter2 < n; ++iter2){
-            arr[iter][iter2] = 10 - rand() % 20;
+            arr[iter][iter2] = a + rand() % (b - a);
             cout << setw(4) << arr[iter][iter2] << " ";
         }
         cout << "\n";
@@ -132,7 +130,7 @@ int main(){
     cout << "Start program ...\n";
 
     int arr[size][size], column[size];
-    int n, select, iter1, iter2;
+    int n, select, a, b;
 
     /*choose input matrix*/
     cout << "Select matrix input method: \n\n";
@@ -146,9 +144,11 @@ int main(){
     if (select == 1)
         enterMatrix(arr, column, n);
     if (select == 2)
-        generateMatrix(arr, column, n);
+        cout << "Enter generate interval:\n";
+        cin >> a >> b;
+        generateMatrix(arr, column, n, a, b);
 
-    cout << "Sum Columns: \n\n"; 
+    cout << "Sum Columns: \n\n";
     uSumColumns(arr, column, n);
     cout << "\n\n";
 

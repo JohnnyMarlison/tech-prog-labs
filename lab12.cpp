@@ -5,7 +5,9 @@ using std::cout;
 using std::cin;
 
 /*Fucntion count prime & perfect num*/
-void countNum(unsigned long long int nums, int count, int count_prime, int count_perfect){
+bool countNum(unsigned long long int nums){
+    int count = 0, count_prime = 0, count_perfect = 0;
+
     /*prime num*/
     bool prime = true;
     for (int iter = 2; iter <= (sqrt(nums)); ++iter){
@@ -13,15 +15,32 @@ void countNum(unsigned long long int nums, int count, int count_prime, int count
             prime = false;
             break;
         }
-        if (prime == true)
-            count_prime += 1;
+        // if(prime){
+        //     //count_prime += 1;
+        //     //cout << "Prime\n";
+        //     return true;
+        // }
+        // else
+        //     //cout << "Not Prime\n";
+        //     return false;
     }
-    if(prime)
-        cout<<"Prime \n";
+    if(prime){
+        //count_prime += 1;
+        //cout << "Prime\n";
+        return true;
+    }
     else
-        cout<<"Not Prime\n";
+        //cout << "Not Prime\n";
+        return false;
 
-    /*perfect num*/
+    // if(prime){
+    //     count_prime += 1;
+    //     cout << "Prime\n";
+    // }
+    // else
+    //     cout << "Not Prime\n";
+
+    /*perfect num*//*
     bool perfect = false;
     int sum = 0;
     if (nums > 0){
@@ -29,43 +48,34 @@ void countNum(unsigned long long int nums, int count, int count_prime, int count
             if (nums % iter == 0)
                 sum += iter;
             }
-        if (nums == sum){
-            perfect = true;
-            cout << "Perfect\n";
-            count_perfect += 1;
-        }
-        else{
-            perfect = false;
-            cout << "Not Perfect\n";
-        }
+            if (nums == sum){
+                perfect = true;
+                cout << "Perfect\n";
+                count_perfect += 1;
+            }
+            else{
+                perfect = false;
+                cout << "Not Perfect\n";
+            }
     }
     else
         cout << "False\n";
-   
+
+
     /*Count nums*//*
     if(prime == true && perfect == true)
         count += 1;
     cout << "Count = " << count << "\n";
     */
-    /*count prime*//*
-    if (prime == true)
-        count_prime += 1;
-    /*cout << "Count prime: " << count_prime << "\n";*/
 
-    /*count perfect*//*
-    if (perfect == true)
-        count_perfect += 1;*/
-    
-    cout << "Count prime: " << count_prime << "\n";
-    cout << "Count prime: " << count_perfect << "\n\n";
+    //cout << "Count prime: " << count_prime << "\n";
+    //return count_prime;
+    //cout << "Count perfect: " << count_perfect << "\n\n";
 }
 
 int main(){
     cout << "Start Program ... \n";
-    int count = 0;
-    int count_prime = 0;
-    int count_perfect = 0;
-    unsigned long long int N, nums;
+    unsigned long long int N, nums, count_prime = 0;
 
     /*input*/
     cout << "Enter N: ";
@@ -73,8 +83,12 @@ int main(){
 
     for (int iter = 0; iter < N; ++iter){
         cin >> nums;
-        countNum(nums, count, count_prime, count_perfect);
+        //countNum(nums);
+        //cout << "Count = " << countNum(nums) << "\n";
+        if (countNum(nums) == true)
+            count_prime += 1;
     }
+     cout << "Count = " << count_prime << "\n";
 
 
     cout << "Program finished. \n";
