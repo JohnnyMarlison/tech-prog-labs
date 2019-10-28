@@ -10,6 +10,7 @@ int main(){
 	int N;
 	printf("Enter N: ");
 	scanf("%d",&N);
+	
 	/*factorial*/
 	for(int iter = 0; iter < N; ++iter){
 		scanf("%llu", &nums);
