@@ -14,11 +14,6 @@ bool primeNum(unsigned long long int nums){
             prime = false;
             break;
         }
-        // if(prime){
-        //     return true;
-        // }
-        // else
-        //     return false;
     }
     if(prime){
             return true;
