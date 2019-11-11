@@ -5,13 +5,11 @@
 using std::cout;
 using std::cin;
 
-void firstGroup(int nums){
-    int tmp = nums, index = 0;
-    if (nums < tmp){
-        cout << "Last num: " << tmp << '\n';
-    }
-    else
-        tmp = nums;
+int firstGroup(int nums, int count){
+    // if(nums){
+    //     count += 1;
+    // }
+    return (count += 1);
 }
 /*
 int lastGroup(){
@@ -20,14 +18,15 @@ int lastGroup(){
 */
 int main(){
     cout << "Start program ...\n";
-    int nums;
+    int nums, count = 0;
 
     for(int iter = 0; nums != 0; ++iter){
 		cin >> nums;
-        firstGroup(nums);
+        firstGroup(nums, count);
     }
-    //cout << "Last num: " << firstGroup(nums) << '\n'
-    firstGroup(nums);
+
+    cout << firstGroup(nums, count) << '\n';
+
     cout << "Progam finished.\n";
     return 0;
 }
