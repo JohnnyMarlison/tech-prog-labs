@@ -5,7 +5,7 @@ using std::cin;
 
 /*function for translate nums from any nums system to decimal*/
 unsigned long long int decimalNS(unsigned long long int num, unsigned int ns){
-    unsigned long long int S,P;
+    unsigned long long int S, P;
 
     for (S = 0, P = 1; num!= 0; S += num % 10 * P, P *= ns, num /= 10);
         return S;
@@ -13,7 +13,7 @@ unsigned long long int decimalNS(unsigned long long int num, unsigned int ns){
 
 /*function for translate nums from decimal system to any nums system*/
 unsigned long long int anyNS(unsigned long long int num, unsigned int ns){
-    unsigned long long int S,P;
+    unsigned long long int S, P;
 
     for (S = 0, P = 1; num!= 0; S += num % ns * P, P *= 10, num /= ns);
         return S;
