@@ -7,74 +7,77 @@ using std::cin;
 using std::endl;
 
 int firstGroup(){
-    int i = 1, nums, x_st, count_gr = 0, k = 1, max1, max2, konm1, konm2;
-    for(cout << "x = ", cin >> nums; nums != 0; i++, cin >> nums){
-        if (i != 1){
+    int iter = 1, nums, x_st, count_gr = 0, count = 1, max1, max2, konm1, konm2;
+    for(cout << "x = ", cin >> nums; nums != 0; iter++, cin >> nums){
+        if (iter != 1){
             if (nums > x_st)
-                k++;
+                count++;
             else
-                if (k == 1){
+                if (count == 1){
                     count_gr++;
                     if (count_gr == 1){
-                        max1 = k;
-                        konm1 = i - 1;
+                        max1 = count;
+                        konm1 = iter - 1;
                     }
                     else
                         if(count_gr == 2)
-                            if (k <= max1) {
-                                max2 = k;
-                                konm2 = i - 1;
+                            if (count <= max1) {
+                                max2 = count;
+                                konm2 = iter - 1;
                             }
                             else{
                                 max2 = max1;
                                 konm2 = konm1;
-                                max1 = k;
-                                konm1 = i - 1;
+                                max1 = count;
+                                konm1 = iter - 1;
                             }
                         else
-                            if (k > max1){
+                            if (count > max1){
                                 max2 = max1;
                                 konm2 = konm1;
-                                max1 = k;
-                                konm1 = i - 1;
+                                max1 = count;
+                                konm1 = iter - 1;
                             }
                             else
-                                if (k > max2) {
-                                    max2 = k;
-                                    konm2 = i - 1;
+                                if (count > max2) {
+                                    max2 = count;
+                                    konm2 = iter - 1;
                                 }
-                    k = 1;
+                    count = 1;
                 }
             }
         x_st = nums;
     }
     //После цикла
-    if (k > 1){
+    if (count > 1){
         count_gr++;
         if (count_gr == 1){
-            max1 = k;
-            konm1 = i;
+            max1 = count;
+            konm1 = iter;
         }
         else
             if(count_gr == 2)
                 if (k <= max1) {
-                    max2 = k;konm2 = i;}
+                    max2 = count;
+                    konm2 = iter;
+                    }
                 else {
                     max2 = max1;
                     konm2 = konm1;
-                    max1 = k;konm1 = i;
+                    max1 = count;
+                    konm1 = iter;
                 }
             else
-                if (k > max1) {
+                if (count > max1) {
                     max2 = max1;
                     konm2 = konm1;
-                    max1 = k;
-                    konm1 = i;
+                    max1 = count;
+                    konm1 = iter;
                 }
-                    if (k > max2) {
                 else
-                        max2 = k;
-                        konm2 = i;
+                    if (count > max2) {
+                        max2 = count;
+                        konm2 = iter;
                     }
     }
     /*output*/
