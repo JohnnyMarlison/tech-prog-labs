@@ -35,9 +35,19 @@ void generateArray(float arr[], int N, int first, int last){
     cout << '\n';
 }
 
-double sumNegNums(float arr[], int N){
-
+/**/
+double sumElem(float arr[], int N){
+    int sum = 0; 
+    
+    for(int iter = 0; iter < N; ++iter){
+        if (iter % 2 == 0){
+            sum += arr[iter];
+        }
+    
+    return sum;
 }
+
+
 
 int main(){
     cout << "Start program ...\n";
@@ -61,6 +71,8 @@ int main(){
         cin >> a >> b;
         generateArray(arr, N, a, b);
     }
+
+    cout << "Sum = " << sumElem(arr, N) << '\n';
 
     cout << "Progam finished.\n";
     return 0;
