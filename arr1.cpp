@@ -35,10 +35,11 @@ void generateArray(float arr[], int N, int first, int last){
     cout << '\n';
 }
 
-/**/
+/*sum elements odd index*/
 double sumElem(float arr[], int N){
     int sum = 0; 
     
+    /*cycle sum*/
     for(int iter = 0; iter < N; ++iter){
         if (iter % 2 == 0){
             sum += arr[iter];
