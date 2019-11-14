@@ -32,32 +32,9 @@ if (!flag_first_found) {
 } else {
     //обработчик последней группы, где каждую группу ты перезаписываешь, если она находится
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int firstGroup(){
     int iter = 1, nums, nums_st, count_gr = 0, count = 1, max1, max2, konm1, konm2;
-    for(cout << "x = ", cin >> nums; nums != 0; iter++, cin >> nums){
+    for(cout << "nums = ", cin >> nums; nums != 0; iter++, cin >> nums){
         if (iter != 1){
             if (nums > nums_st)
                 count++;
