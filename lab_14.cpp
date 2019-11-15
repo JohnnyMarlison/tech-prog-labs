@@ -4,7 +4,24 @@
 
 using std::cout;
 using std::cin;
-//using std::endl;
+
+bool increasNum(int nums){
+    bool result = false;
+    for (int iter = 10; nums != 0; iter * 10){
+        if ((nums % 10) > (nums % iter)){
+            result = true;
+            //return true;
+        }
+        else{
+            result = false
+            break;
+        }
+    }
+    if (result == true)
+        return true;
+    else
+        return false; 
+}
 
 void groups(){
     int indb_1 = 0, inde_1 = 0,
@@ -19,6 +36,7 @@ void groups(){
         if(iter != 1){
             if(!flag_first_found){  
                 if(!flag_group && nums_last < nums) {
+                    if (){}
                     indb_1 = iter - 1;
                     flag_group = 1;
                 }

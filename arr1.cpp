@@ -1,3 +1,11 @@
+/*Задан массив вещественных чисел Х(n). Найти
+• сумму элементов с нечетными номерами;
+• произведение элементов массива, расположенных между первым и последним
+отрицательными элементами.
+Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
+сформировать общий массив Z(n+m). Удалить из полученного массива наименьший
+элемент.*/
+
 #include<iostream>
 #include<ctime>
 
@@ -24,11 +32,11 @@ void enterArray(float arr[], int N){
 
 /*function generate array with rand*/
 void generateArray(float arr[], int N, int first, int last){
+    
     /*generate & output*/
     srand(time(0));
     for (int iter = 0; iter < N; ++iter){
         arr[iter] = (first + (rand() % (last - first))) ;
-        //arr[iter] = (first + (rand() % (last - first + 1))) * 0.001;
         cout << arr[iter] << "  ";
     }
 
@@ -44,7 +52,7 @@ double sumElem(float arr[], int N){
         if (iter % 2 == 0){
             sum += arr[iter];
         }
-    
+    }
     return sum;
 }
 
