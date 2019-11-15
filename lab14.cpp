@@ -4,7 +4,11 @@
 
 using std::cout;
 using std::cin;
-using std::endl;
+using 
+
+
+
+std::endl;
 
 indb_1 = -1, inde_1 = -1   //индексы первой группы
 indb_2 = -1, inde_2 = -1   //индексы последней группы
@@ -32,6 +36,34 @@ if (!flag_first_found) {
 } else {
     //обработчик последней группы, где каждую группу ты перезаписываешь, если она находится
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int firstGroup(){
     int iter = 1, nums, nums_st, count_gr = 0, count = 1, max1, max2, konm1, konm2;
     for(cout << "nums = ", cin >> nums; nums != 0; iter++, cin >> nums){
@@ -57,8 +89,8 @@ int firstGroup(){
                                 max1 = count;
                                 konm1 = iter - 1;
                             }
-                        else
                             if (count > max1){
+                        else
                                 max2 = max1;
                                 konm2 = konm1;
                                 max1 = count;
