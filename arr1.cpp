@@ -41,10 +41,10 @@ double sumElem(float arr[], int N){
     
     /*cycle sum*/
     for(int iter = 0; iter < N; ++iter){
-        if (iter % 2 == 0){
+        if (iter % 2 == 1){
             sum += arr[iter];
         }
-    
+    }
     return sum;
 }
 
