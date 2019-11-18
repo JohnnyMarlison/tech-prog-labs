@@ -1,3 +1,11 @@
+/*Задан массив вещественных чисел Х(n). Найти
+• сумму элементов с нечетными номерами;
+• произведение элементов массива, расположенных между первым и последним
+отрицательными элементами.
+Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
+сформировать общий массив Z(n+m). Удалить из полученного массива наименьший
+элемент.*/
+
 #include<iostream>
 #include<ctime>
 
@@ -8,6 +16,7 @@ using std::cout;
 
 /*function for enter array elements*/
 void enterArray(float arr[], int N){
+    
     /*input*/
     for (int iter = 0; iter < N; ++iter){
         cin >> arr[iter];
@@ -24,11 +33,11 @@ void enterArray(float arr[], int N){
 
 /*function generate array with rand*/
 void generateArray(float arr[], int N, int first, int last){
+    
     /*generate & output*/
     srand(time(0));
     for (int iter = 0; iter < N; ++iter){
-        arr[iter] = (first + (rand() % (last - first))) ;
-        //arr[iter] = (first + (rand() % (last - first + 1))) * 0.001;
+        arr[iter] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
         cout << arr[iter] << "  ";
     }
 
@@ -37,17 +46,27 @@ void generateArray(float arr[], int N, int first, int last){
 
 /*sum elements odd index*/
 double sumElem(float arr[], int N){
-    int sum = 0; 
+    float sum = 0; 
     
     /*cycle sum*/
     for(int iter = 0; iter < N; ++iter){
-        if (iter % 2 == 1){
+        if(iter % 2 != 0){
             sum += arr[iter];
         }
     }
     return sum;
 }
 
+
+void negativeElem(float arr[], int N){
+    float first_neg = 0, last_neg = 0;
+
+    for(int iter = 0; iter < N; +iter){
+        if(arr[iter] < first_neg){
+
+        }
+    }
+}
 
 
 int main(){
