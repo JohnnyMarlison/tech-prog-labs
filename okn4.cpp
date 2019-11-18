@@ -12,33 +12,34 @@
 using std::cin;
 using std::cout;
 
+
+/*init class polynomial*/
 class Polynomial {
     int pow;
 
 public:
     void input();
-    void +();
-    void -();
-    void *();
+    void addition();
+    void subtraction();
+    void multiplication();
     void output();
-
-
 }
 
+/*init functions polynomial*/
 void Polynomial::input(){
 
 
 }
 
-void Polynomial::sum(){
+void Polynomial::addition(){
 
 }
 
-void Polynomial::neg(){
+void Polynomial::subtraction(){
 
 }
 
-void Polynomial::sol(){
+void Polynomial::multiplication(){
 
 }
 
