@@ -1,11 +1,11 @@
 /*
 Задан массив вещественных чисел Х(n). Найти
-• сумму элементов с нечетными номерами;
+• сумму элементов с нечетными номерами; DONE
 • произведение элементов массива, расположенных между первым и последним
-отрицательными элементами.
-Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
+отрицательными элементами. DONE
+• Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
 сформировать общий массив Z(n+m). Удалить из полученного массива наименьший
-элемент.
+элемент. DOING
 */
 
 #include<iostream>
@@ -46,8 +46,17 @@ void generateArray(float arr1[], int N, int first, int last){
 
     cout << '\n';
 }
+/*function new array*/
+void newArray(float arr2[], int M, int first, int last){
+    
+    /*generate & output*/
+    srand(time(0));
+    for (int iter = 0; iter < M; ++iter){
+        arr2[iter] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
+        cout << arr2[iter] << "  ";
+    }
 
-void newArray(){
+    cout << '\n';
 
 }
 
@@ -59,49 +68,54 @@ double sumElem(float arr1[], int N){
     for(int iter = 0; iter < N; ++iter){
         if(iter % 2 != 0){
             sum += arr1[iter];
-        }
     }
+        }
     return sum;
 }
 
-
+/*sum from first to last negative */
 void negativeElem(float arr1[], int N){
     float first_neg = 0, last_neg = 0; 
-    int f_ind, l_ind;
+    int first_ind, last_ind;
     float sum = 0;
 
-
+    /*first negative*/
     for(int iter = 0; iter < N; ++iter){
         if(arr1[iter] < first_neg){
             first_neg = arr1[iter];
-            f_ind = iter;
+            first_ind = iter;
             break;
         }
     }
 
+    /*last negative*/
     for(int iter = N - 1; 0 < iter; --iter){
         if(arr1[iter] < last_neg){
             last_neg = arr1[iter];
-            l_ind = iter;
+            last_ind = iter;
             break;
         }
     }
 
-    for(f_ind; f_ind < l_ind; ++f_ind){
-        sum += arr1[f_ind];
+    /*sum*/
+    for(first_ind; first_ind < last_ind; ++first_ind){
+        sum += arr1[first_ind];
     }
 
     cout << "Second sum " << sum << "\n";
 }
 
-
+/*main*/
 int main(){
     cout << "Start program ...\n";
     
-    float arr1[size1], select = 0;
+    /*variables*/
     float arr2[size2];
+    float arr1[size1]; 
 
-    int a, b, N;
+    /*interval, arrays sizes*/
+    int a, b, N, M, K, 
+        select = 0, select1 = 0;
 
     /*input*/
     cout << "Select array input method: \n\n";
@@ -118,14 +132,39 @@ int main(){
         cout << "Enter generate interval:\n";
         cin >> a >> b;
         generateArray(arr1, N, a, b);
+    
     }
-
+    a = b = 0; 
     /*output*/
     cout << "Sum = " << sumElem(arr1, N) << '\n';
     negativeElem(arr1, N);
 
-    cout << "Generate second array?\n"
+    cout << "Generate second array?\n";
+    cout << "1 - Yes\n";
+    cout << "2 - No\n";
+    cin >> select1;
+    cout << "Enter count elements: \n";
+    cin >> M;
+
+    if (select1 == 1){
+        cout << "Enter generate interval:\n";
+        cin >> a >> b;
+        newArray(arr2, M, a, b);
+    }
+    if (select1 == 2){
+        cout << "Progam finished.\n";
+    }
 
     cout << "Progam finished.\n";
     return 0;
-}
+}   
+
+/*
+Задан массив вещественных чисел Х(n). Найти
+• сумму элементов с нечетными номерами; DONE
+• произведение элементов массива, расположенных между первым и последним
+отрицательными элементами. DONE
+• Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
+сформировать общий массив Z(n+m). Удалить из полученного массива наименьший
+элемент. DOING
+*/
