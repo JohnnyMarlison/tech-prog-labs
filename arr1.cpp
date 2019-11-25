@@ -105,6 +105,27 @@ void negativeElem(float arr1[], int N){
     cout << "Second sum " << sum << "\n";
 }
 
+
+/*function sum arrays */
+void sumArrays(float arr1[], float arr2[], int N, int M){
+    int K; 
+    K = N + M;
+
+    float arr3[K];
+
+    for(int iter = 0; iter < N; iter++){
+        arr3[iter] = arr1[iter];
+        cout << arr3[iter] << " ";
+    }
+    
+    for(int iter = N; iter < K; iter++){
+        arr3[iter] = arr2[iter];
+        cout << arr3[iter] << " ";
+    }
+
+    cout << '\n';
+}
+
 /*main*/
 int main(){
     cout << "Start program ...\n";
@@ -154,6 +175,8 @@ int main(){
     if (select1 == 2){
         cout << "Progam finished.\n";
     }
+
+    sumArrays(arr1, arr2, N, M);
 
     cout << "Progam finished.\n";
     return 0;
