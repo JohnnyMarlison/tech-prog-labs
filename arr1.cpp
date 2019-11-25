@@ -5,7 +5,7 @@
 отрицательными элементами. DONE
 • Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
 сформировать общий массив Z(n+m). Удалить из полученного массива наименьший
-элемент. DOING
+элемент. DONE
 */
 
 #include<iostream>
@@ -46,6 +46,7 @@ void generateArray(float arr1[], int N, int first, int last){
 
     cout << '\n';
 }
+
 /*function new array*/
 void newArray(float arr2[], int M, int first, int last){
     
@@ -109,15 +110,17 @@ void negativeElem(float arr1[], int N){
 /*function sum arrays */
 void sumArrays(float arr1[], float arr2[], int N, int M){
     int K; 
-    K = N + M;
-
     float arr3[K];
 
+    K = N + M;
+   
+    /*sum first array*/
     for(int iter = 0; iter < N; ++iter){
         arr3[iter] = arr1[iter];
         cout << arr3[iter] << " ";
     }
     
+    /*sum second array*/
     for(int iter1 = N, iter2 = 0; iter1 < K; ++iter1, ++iter2){
         arr3[iter1] = arr2[iter2];
         cout << arr3[iter1] << " ";
@@ -181,13 +184,3 @@ int main(){
     cout << "Progam finished.\n";
     return 0;
 }   
-
-/*
-Задан массив вещественных чисел Х(n). Найти
-• сумму элементов с нечетными номерами; DONE
-• произведение элементов массива, расположенных между первым и последним
-отрицательными элементами. DONE
-• Из данного массива и некоторого массива того же типа, но другой размерности Y(m),
-сформировать общий массив Z(n+m). Удалить из полученного массива наименьший
-элемент. DOING
-*/

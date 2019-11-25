@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "ctime": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
