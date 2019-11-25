@@ -113,14 +113,14 @@ void sumArrays(float arr1[], float arr2[], int N, int M){
 
     float arr3[K];
 
-    for(int iter = 0; iter < N; iter++){
+    for(int iter = 0; iter < N; ++iter){
         arr3[iter] = arr1[iter];
         cout << arr3[iter] << " ";
     }
     
-    for(int iter = N; iter < K; iter++){
-        arr3[iter] = arr2[iter];
-        cout << arr3[iter] << " ";
+    for(int iter1 = N, iter2 = 0; iter1 < K; ++iter1, ++iter2){
+        arr3[iter1] = arr2[iter2];
+        cout << arr3[iter1] << " ";
     }
 
     cout << '\n';
