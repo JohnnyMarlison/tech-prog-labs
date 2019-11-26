@@ -42,14 +42,19 @@ void generateArray(int arr1[], int N, int first, int last){
 }
 
 void sixMax(int arr1[], int N, int max[],int M){
-    int max1 = INT_MAX;
-    /*
-    for(int iter = 0, iter2 = 0; iter < N && iter2 < M; ++iter, ++iter2){
-        if(arr1[iter] > max1){
-            max[iter2] = max1;
+    int max1 = -INT_MAX;
+    int iter2 = 0;
+    
+    while(iter2 < M){
+        for(int iter = 0; iter < N; ++iter){
+            if(arr1[iter] > max1){
+                max1 = arr1[iter];
+                max[iter2] = arr1[iter];
+                iter2 += 1; 
+            }
         }
     }
-*/
+
     for (int iter = 0; iter < M; ++iter){
         cout << max[iter] << " ";
     }
