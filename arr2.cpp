@@ -41,6 +41,7 @@ void generateArray(int arr1[], int N, int first, int last){
     cout << '\n';
 }
 
+/*function max six elements*/
 void sixMax(int arr1[], int N, int max[],int M){
     int max1 = -INT_MAX;
     int iter2 = 0;
@@ -48,9 +49,7 @@ void sixMax(int arr1[], int N, int max[],int M){
     while(iter2 < M){
         for(int iter = 0; iter < N; ++iter){
             if(arr1[iter] > max1){
-                max1 = arr1[iter];
-                max[iter2] = arr1[iter];
-                iter2 += 1; 
+                max[iter2] = arr1[iter]; 
             }
         }
     }
