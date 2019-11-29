@@ -5,23 +5,34 @@
 using std::cout;
 using std::cin;
 
-bool increasNum(int nums){
-    bool result = false;
-    for (int iter = 10; iter < nums; iter * 10){
-        if ((nums % 10) > (nums % iter)){
-            result = true;
+void increasNum(int nums){
+    int result = 0;
+    
+    while (nums > 0){
+        if ((nums % 10) < (nums / 10)){
+            result = 1;
         }
         else{
-            result = false;
-            //break;
+            result = 0;
         }
     }
-    if (result == true)
-        return true;
-    else
-        return false; 
-}
 
+    if (result == 1)
+//        return 1;
+        cout << "True\n";
+    else 
+//        return 0;
+        cout << "False\n";
+
+    /*
+    while (nums > 0){
+        result = nums % 10;
+        nums /= 10; 
+        cout << result << '\n';
+    }
+    */
+}
+/*
 void groups(){
     int indb_1 = 0, inde_1 = 0,
         indb_2 = 0, inde_2 = 0,
@@ -34,22 +45,22 @@ void groups(){
     for(cin >> nums; nums != 0; iter++, cin >> nums){
         if(iter != 1){
             if(!flag_first_found){  
-                if(!flag_group && (increasNum(nums_last) == 1) < increasNum(nums)) {
+                if(!flag_group && nums_last < nums) {
                     indb_1 = iter - 1;
                     flag_group = 1;
                 }
-                if(flag_group && (increasNum(nums_last) == 1) >= increasNum(nums)){
+                if(flag_group && nums_last >= nums){
                     inde_1 = iter - 1;
                     flag_group = 0;
                     flag_first_found = 1;
                 }
             } 
             else {
-                if(!flag_group && increasNum(nums_last) < increasNum(nums)){
+                if(!flag_group && nums_last < nums){
                     indb_2 = iter - 1;
                     flag_group = 1;
                 }
-                if(flag_group && increasNum(nums_last) >= increasNum(nums)){
+                if(flag_group && nums_last >= nums){
                     inde_2 = iter - 1;
                     flag_group = 0;
 
@@ -75,13 +86,17 @@ void groups(){
     }
     
 }
-
+*/
 
 int main(){
     cout << "Start program ...\n";
+    int iter = 1, nums, nums_last = 0, 
+        count_gr = 0, count = 1;
 
-    groups();
-
+//  groups();
+    for(cin >> nums; nums != 0; iter++, cin >> nums){
+        increasNum(nums);
+    }
     cout << "Progam finished.\n";
     return 0;
 }
