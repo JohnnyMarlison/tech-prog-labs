@@ -8,29 +8,13 @@ using std::cin;
 void increasNum(int nums){
     int result = 0;
     
-    while (nums > 0){
-        if ((nums % 10) < (nums / 10)){
-            result = 1;
-        }
-        else{
-            result = 0;
-        }
-    }
-
-    if (result == 1)
-//        return 1;
-        cout << "True\n";
-    else 
-//        return 0;
-        cout << "False\n";
-
-    /*
+    
     while (nums > 0){
         result = nums % 10;
         nums /= 10; 
         cout << result << '\n';
     }
-    */
+    
 }
 /*
 void groups(){

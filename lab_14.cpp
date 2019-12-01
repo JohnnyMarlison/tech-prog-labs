@@ -6,20 +6,17 @@ using std::cout;
 using std::cin;
 
 bool increasNum(int nums){
-    bool result = false;
-    for (int iter = 10; iter < nums; iter * 10){
-        if ((nums % 10) > (nums % iter)){
-            result = true;
-        }
-        else{
-            result = false;
-            //break;
-        }
+    int prev = nums % 10;
+
+    nums /= 10;
+    while(nums){
+        if(prev <= nums % 10)
+            return false;
+        
+        prev = nums % 10;
+        nums /= 10;
     }
-    if (result == true)
-        return true;
-    else
-        return false; 
+    return true;
 }
 
 void groups(){
@@ -32,39 +29,68 @@ void groups(){
 
     cout << "Enter nums:\n";
     for(cin >> nums; nums != 0; iter++, cin >> nums){
-        if(iter != 1){
             if(!flag_first_found){  
-                if(!flag_group && (increasNum(nums_last) == 1) < increasNum(nums)) {
-                    indb_1 = iter - 1;
+                if(!flag_group && increasNum(nums)) {
+                    indb_1 = iter ;
                     flag_group = 1;
                 }
-                if(flag_group && (increasNum(nums_last) == 1) >= increasNum(nums)){
+                if(flag_group && !increasNum(nums)){
                     inde_1 = iter - 1;
+                    if (inde_1 - indb_1) {
+                        flag_first_found = true;
+                    } else {
+                        indb_1 = 0;
+                        inde_1 = 0;
+                    }
                     flag_group = 0;
-                    flag_first_found = 1;
                 }
             } 
             else {
-                if(!flag_group && increasNum(nums_last) < increasNum(nums)){
-                    indb_2 = iter - 1;
+                if(!flag_group && increasNum(nums)){
+                    indb_2 = iter ;
                     flag_group = 1;
                 }
-                if(flag_group && increasNum(nums_last) >= increasNum(nums)){
+                if(flag_group && !increasNum(nums)){
                     inde_2 = iter - 1;
+                    if (!(inde_2 - indb_2)) {
+                        indb_2 = 0;
+                        inde_2 = 0;
+                    }
                     flag_group = 0;
 
                 }
             }    
-        }
         nums_last = nums;    
     }
+    if(!flag_first_found) 
+    {
+        if (flag_group) {
+            inde_1 = iter - 1;
+            if (inde_1 - indb_1) {
+                flag_first_found = true;
+            } else {
+                indb_1 = 0;
+                inde_1 = 0;
+            }
+        }
+    }
+    else
+    {
+        if (flag_group) {
+            inde_2 = iter - 1;
+            if (!(inde_2 - indb_2)) {
+                indb_2 = 0;
+                inde_2 = 0;
+            }
+        }
+    }
 
-    if(flag_group && flag_first_found){
-        inde_2 = iter - 1;
-    }
-    if(flag_group && !flag_first_found){
-        inde_1 = iter - 1;
-    }
+    // if(flag_group && flag_first_found){
+    //     inde_2 = iter - 1;
+    // }
+    // if(flag_group && !flag_first_found){
+    //     inde_1 = iter - 1;
+    // }
 
     if (indb_1)
         cout << "Find first group index: " << indb_1 << " " << inde_1 << "\n";
