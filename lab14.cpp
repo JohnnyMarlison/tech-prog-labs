@@ -31,22 +31,22 @@ void groups(){
     /*find first & last group*/
     cout << "Enter nums:\n";
     for(cin >> nums; nums != 0; iter++, cin >> nums){
-        if(!flag_first_found){  
-            /*first group*/
-            if(!flag_group && increasNum(nums)) {
-                indb_1 = iter ;
-                flag_group = 1;
-            }
-            if(flag_group && !increasNum(nums)){
-                inde_1 = iter - 1;
-                if (inde_1 - indb_1) {
-                    flag_first_found = 1;
-                } 
-                else {
-                    indb_1 = 0;
-                    inde_1 = 0;
+            if(!flag_first_found){  
+                /*first group*/
+                if(!flag_group && increasNum(nums)) {
+                    indb_1 = iter ;
+                    flag_group = 1;
                 }
-                flag_group = 0;
+                if(flag_group && !increasNum(nums)){
+                    inde_1 = iter - 1;
+                    if (inde_1 - indb_1) {
+                        flag_first_found = true;
+                    } else {
+                        indb_1 = 0;
+                        inde_1 = 0;
+                    }
+                    flag_group = 0;
+                }
             } 
             else {
                 /*last group*/
@@ -61,6 +61,7 @@ void groups(){
                         inde_2 = 0;
                     }
                     flag_group = 0;
+
                 }
             }    
         nums_last = nums;    
@@ -104,6 +105,7 @@ void groups(){
     }
     
 }
+
 
 int main(){
     cout << "Start program ...\n";
