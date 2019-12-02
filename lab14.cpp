@@ -1,160 +1,114 @@
 /*Вводится последовательность целых чисел, найти первую и последнюю группы,
 состоящих из возрастающей последовательности цифр.*/
-#include<iostream>
+#include <iostream>
 
 using std::cout;
 using std::cin;
-using 
 
+/*find increas num in nums*/
+bool increasNum(int nums){
+    int prev = nums % 10;
+    nums /= 10;
 
-
-std::endl;
-
-indb_1 = -1, inde_1 = -1   //индексы первой группы
-indb_2 = -1, inde_2 = -1   //индексы последней группы
-flag_group                 //флаг что сейчас группа
-flag_first_found           //флаг что первая группа найдена
-
-//----Обработчик группы-----------------
-if (!flag_group && condition) { //группа найдена
-    ind1 = iter;
-    flag_group = 1;
-}
-
-if (flag_group && !condition) { //группа закончилась
-    flag_group = 0;
-    ind2 = iter;
-    if (ind2 - ind1 > 0) {
-        //то что группа является группой
+    while(nums){
+        if(prev <= nums % 10)
+            return false;
+        
+        prev = nums % 10;
+        nums /= 10;
     }
+    return true;
 }
 
-//----Общая структура программы---------
-if (!flag_first_found) {
-    //обработчик первой группы
-    flag_first_found = 1; //первая группа найдена
-} else {
-    //обработчик последней группы, где каждую группу ты перезаписываешь, если она находится
-}
+void groups(){
+    int indb_1 = 0, inde_1 = 0,
+        indb_2 = 0, inde_2 = 0,
+        flag_group = 0, flag_first_found = 0;
 
+    int iter = 1, nums, nums_last = 0, 
+        count_gr = 0, count = 1;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-int firstGroup(){
-    int iter = 1, nums, nums_st, count_gr = 0, count = 1, max1, max2, konm1, konm2;
-    for(cout << "nums = ", cin >> nums; nums != 0; iter++, cin >> nums){
-        if (iter != 1){
-            if (nums > nums_st)
-                count++;
-            else
-                if (count == 1){
-                    count_gr++;
-                    if (count_gr == 1){
-                        max1 = count;
-                        konm1 = iter - 1;
-                    }
-                    else
-                        if(count_gr == 2)
-                            if (count <= max1) {
-                                max2 = count;
-                                konm2 = iter - 1;
-                            }
-                            else{
-                                max2 = max1;
-                                konm2 = konm1;
-                                max1 = count;
-                                konm1 = iter - 1;
-                            }
-                            if (count > max1){
-                        else
-                                max2 = max1;
-                                konm2 = konm1;
-                                max1 = count;
-                                konm1 = iter - 1;
-                            }
-                            else
-                                if (count > max2) {
-                                    max2 = count;
-                                    konm2 = iter - 1;
-                                }
-                    count = 1;
-                }
+    /*find first & last group*/
+    cout << "Enter nums:\n";
+    for(cin >> nums; nums != 0; iter++, cin >> nums){
+        if(!flag_first_found){  
+            /*first group*/
+            if(!flag_group && increasNum(nums)) {
+                indb_1 = iter ;
+                flag_group = 1;
             }
-        nums_st = nums;
-    }
-    //После цикла
-    if (count > 1){
-        count_gr++;
-        if (count_gr == 1){
-            max1 = count;
-            konm1 = iter;
-        }
-        else
-            if(count_gr == 2)
-                if (count <= max1) {
-                    max2 = count;
-                    konm2 = iter;
-                    }
+            if(flag_group && !increasNum(nums)){
+                inde_1 = iter - 1;
+                if (inde_1 - indb_1) {
+                    flag_first_found = 1;
+                } 
                 else {
-                    max2 = max1;
-                    konm2 = konm1;
-                    max1 = count;
-                    konm1 = iter;
+                    indb_1 = 0;
+                    inde_1 = 0;
                 }
-            else
-                if (count > max1) {
-                    max2 = max1;
-                    konm2 = konm1;
-                    max1 = count;
-                    konm1 = iter;
+                flag_group = 0;
+            } 
+            else {
+                /*last group*/
+                if(!flag_group && increasNum(nums)){
+                    indb_2 = iter ;
+                    flag_group = 1;
                 }
-                else
-                    if (count > max2) {
-                        max2 = count;
-                        konm2 = iter;
+                if(flag_group && !increasNum(nums)){
+                    inde_2 = iter - 1;
+                    if (!(inde_2 - indb_2)) {
+                        indb_2 = 0;
+                        inde_2 = 0;
                     }
+                    flag_group = 0;
+                }
+            }    
+        nums_last = nums;    
     }
-    /*output*/
-    if (count_gr == 0)
-        cout << "No groups of ascending elements\n";
-    else
-        if(count_gr == 1)
-            cout << "There is one group, the number of elements in it " << max1 << ". Last element - "<< konm1 << endl;
-        else{
-            cout << "The number of elements in the first group - " << max1 << ". Last element - " << konm1 << "." << endl;
-            cout << "The number of elements in the last group - " << max2 << ". Last element - " << konm2 << ". "<< endl;
-        }
-}
 
+    /*find first*/
+    if(!flag_first_found) {
+        if (flag_group) {
+            inde_1 = iter - 1;
+            if (inde_1 - indb_1) {
+                flag_first_found = true;
+            } else {
+                indb_1 = 0;
+                inde_1 = 0;
+            }
+        }
+    }
+    else{
+        if(flag_group) {
+            inde_2 = iter - 1;
+            if (!(inde_2 - indb_2)) {
+                indb_2 = 0;
+                inde_2 = 0;
+            }
+        }
+    }
+
+    // if(flag_group && flag_first_found){
+    //     inde_2 = iter - 1;
+    // }
+    // if(flag_group && !flag_first_found){
+    //     inde_1 = iter - 1;
+    // }
+
+    if (indb_1)
+        cout << "Find first group index: " << indb_1 << " " << inde_1 << "\n";
+    if (indb_2)
+        cout << "Find last group index: " << indb_2 << " " << inde_2 << "\n";
+    else{
+        cout << "Group not found\n";   
+    }
+    
+}
 
 int main(){
     cout << "Start program ...\n";
 
-    firstGroup();
+    groups();
 
     cout << "Progam finished.\n";
     return 0;
