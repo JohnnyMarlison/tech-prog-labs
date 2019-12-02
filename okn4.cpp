@@ -68,6 +68,7 @@ Polynomial::~Polynomial() {
 	delete [] koef;
 }
 
+/*output func*/
 void Polynomial::show() {
 	bool output_flag = false;
 	if (koef[pow]) {
@@ -93,6 +94,7 @@ void Polynomial::show() {
 	}
 }
 
+/*input func*/
 void Polynomial::read() {
 	cout << "Enter power of Polynomial: ";
 	cin >> this->pow;
@@ -165,6 +167,7 @@ Polynomial Polynomial::operator*(const Polynomial &p) {
 
 ////////////////Menu functions////////////////////////////
 
+/*main menu for polynomial*/
 int print_main_menu() {
 	int cmd;
 	system("clear");
@@ -284,7 +287,7 @@ void math_block_2(map <string, Polynomial> pol_list) {
 	}
 	cout << "Name polynomial: ";
 	string name;
-	cin >> name;
+	cin >> name;*
 	int x;
 	cout << "x = ";
 	cin >> x;
