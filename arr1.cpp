@@ -107,13 +107,38 @@ void negativeElem(float arr1[], int N){
 }
 
 
+/*del min elem in arr3*/
+void delElem(float arr3[], int K){
+
+    float min = arr3[0];
+    int min_iter = 0;
+
+    /*find min elem*/
+    for(int iter = 0; iter < K; ++iter){
+        if (min > arr3[iter]){
+            min = arr3[iter];
+            min_iter = iter;
+        }
+    }
+
+    cout << "Min - " << min << '\n';
+
+    /*del & output*/
+    for (int iter = 0; iter < K; ++iter){
+        if (iter == min_iter){
+            arr3[min_iter] = arr3[min_iter + 1];
+            K -= 1;
+        }
+        cout << arr3[iter] << ' ';
+    }
+}
+
 /*function sum arrays */
 void sumArrays(float arr1[], float arr2[], int N, int M){
     int K; 
     K = N + M;
     float arr3[K];
 
-   
     /*sum first array*/
     for(int iter = 0; iter < N; ++iter){
         arr3[iter] = arr1[iter];
@@ -127,8 +152,16 @@ void sumArrays(float arr1[], float arr2[], int N, int M){
     }
 
     cout << '\n';
-}
+    
+    delElem(arr3, K);
 
+    cout << '\n';
+}
+/*
+void delElem(float arr3[], int K){
+
+}
+*/
 /*main*/
 int main(){
     cout << "Start program ...\n";
@@ -138,7 +171,7 @@ int main(){
     float arr1[size1]; 
 
     /*interval, arrays sizes*/
-    int a, b, N, M, K, 
+    int a, b, N, M,
         select = 0, select1 = 0;
 
     /*input*/
@@ -180,6 +213,7 @@ int main(){
     }
 
     sumArrays(arr1, arr2, N, M);
+    //delElem(arr3, K)
 
     cout << "Progam finished.\n";
     return 0;
