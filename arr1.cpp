@@ -157,11 +157,7 @@ void sumArrays(float arr1[], float arr2[], int N, int M){
 
     cout << '\n';
 }
-/*
-void delElem(float arr3[], int K){
 
-}
-*/
 /*main*/
 int main(){
     cout << "Start program ...\n";
