@@ -6,6 +6,7 @@ Z в восьмеричной системе счисления.
 
 #include <iostream>
 #include <cmath>
+#include <climits>
 
 #define size1 100
 #define size2 200
@@ -17,14 +18,14 @@ using std::cin;
 void enterArray(int arr1[], int N){
     
     /*input*/
-    for (int iter = 0; iter < N; ++iter){
-        cin >> arr1[iter];
+    for (int i = 0; i < N; ++i){
+        cin >> arr1[i];
     }
     cout << '\n';
 
     /*output*/
-    for (int iter = 0; iter < N; ++iter){
-        cout << arr1[iter] << "  ";
+    for (int i = 0; i < N; ++i){
+        cout << arr1[i] << "  ";
     }
     
     cout << '\n';
@@ -35,18 +36,31 @@ void generateArray(int arr1[], int N, int first, int last){
     
     /*generate & output*/
     srand(time(0));
-    for (int iter = 0; iter < N; ++iter){
-        arr1[iter] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
-        cout << arr1[iter] << "  ";
+    for (int i = 0; i < N; ++i){
+        arr1[i] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
+        cout << arr1[i] << "  ";
     }
 
     cout << '\n';
 }
 
-/*menu & inin variables*/
+void findSixMax(int arr1[], int N, int arr_max[], int K){
+    int max = INT_MAX;
+
+    for (int i = 0; i < N; ++i){
+        if (max > arr1[i]){
+            max = arr1[i];
+            arr_max[i] = max;
+        }
+        cout << arr_max[i] << ' ';       
+    }
+    cout << '\n';
+}
+
+/*menu & init variables*/
 void initArrays(){
     int arr1[size1], arr2[size2], arr_max[size1];
-    int N, K, cmd,a, b;
+    int N, K, cmd, a, b;
     
     cout << "Select array input method: \n\n";
     cout << "1 - Enter array \n";
@@ -58,12 +72,15 @@ void initArrays(){
     switch (cmd) {
 		case 1:
             enterArray(arr1, N);
+            cout << '\n';
 		break;
 
 		case 2:
             cout << "Enter generate interval:\n";
             cin >> a >> b;
+            cout << '\n';
 			generateArray(arr1, N, a, b);
+            findSixMax(arr1, N, arr_max, K);
 		break;
 	}
 
@@ -72,8 +89,7 @@ void initArrays(){
 int main(){
     cout << "Start program ...\n";
 
-    initArrays();
-    
+    initArrays();    
 
     return 0;
     cout << "Progam finished.\n";
