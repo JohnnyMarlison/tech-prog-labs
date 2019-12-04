@@ -126,14 +126,15 @@ void delElem(float arr3[], int K){
     /*del & output*/
     for (int iter = 0; iter < K; ++iter){
         if (iter == min_iter){
-            arr3[min_iter] = arr3[min_iter + 1];
             K -= 1;
+            for (min_iter; min_iter < K; ++min_iter)
+                arr3[min_iter] = arr3[min_iter + 1];
         }
         cout << arr3[iter] << ' ';
     }
 }
 
-/*function sum arrays */
+/*function sum arrays*/
 void sumArrays(float arr1[], float arr2[], int N, int M){
     int K; 
     K = N + M;
