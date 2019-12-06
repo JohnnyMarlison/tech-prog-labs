@@ -75,22 +75,32 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
             }
         }
     }
-    */
-   /*
-    for (int i = 0; i < N; ++i)
-        cout << arr1[i] << "  ";
-    
-    */
+    */;
     /*output*/
     for (int i = 0; i < K; ++i){
         arr_max[i] = arr1[i];
-        cout << arr_max[i] << setw(4);
+        cout << arr_max[i] << setw(4);;
     }
+    cout << '\n';
+}
+
+void delEven(int arr_max[], int K){ 
+    for (int i = 0; i < K; ++i){
+        if (arr_max[i] % 2 == 0){
+            for (int j = i; j < K; j++){
+                arr_max[j] = arr_max[j + 1];
+                K--;
+            }    
+        }
+    } 
+    
+    for (int i = 0; i < K; ++i)
+        cout << arr_max[i] << setw(4);
     
     cout << '\n';
 }
 
-/*delete even elements*/
+/*delete even elements*//*
 void delEven(int arr_max[], int K){
     for (int i = 0; i < K; ++i){
         if (arr_max[i] % 2 == 0){
@@ -98,12 +108,14 @@ void delEven(int arr_max[], int K){
             for (int j = i; j < K; ++j)
                 arr_max[j] = arr_max[j + 1];
         }
-        cout << arr_max[i] << setw(4);
     }
 
+    for (int i = 0; i < K; ++i)
+        cout << arr_max[i] << setw(4);
+    
     cout << '\n';
 }
-
+*/
 /*menu & init variables*/
 void initArrays(){
     int arr1[size1], arr2[size2], arr_max[size1];
