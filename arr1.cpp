@@ -30,7 +30,6 @@ void enterArray(float arr1[], int N){
     for (int iter = 0; iter < N; ++iter){
         cout << arr1[iter] << "  ";
     }
-    
     cout << '\n';
 }
 
