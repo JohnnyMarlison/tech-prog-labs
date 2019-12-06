@@ -83,39 +83,67 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
     }
     cout << '\n';
 }
-
+/**//*
 void delEven(int arr_max[], int K){ 
-    for (int i = 0; i < K; ++i){
-        if (arr_max[i] % 2 == 0){
-            for (int j = i; j < K; j++){
+    int iter = 0;
+
+    while (arr_max[iter] < K){
+        if (arr_max[iter] % 2 == 0){
+            for (int j = iter; j < K;){
                 arr_max[j] = arr_max[j + 1];
                 K--;
-            }    
+            }
         }
-    } 
-    
-    for (int i = 0; i < K; ++i)
-        cout << arr_max[i] << setw(4);
-    
-    cout << '\n';
-}
-
-/*delete even elements*//*
-void delEven(int arr_max[], int K){
-    for (int i = 0; i < K; ++i){
-        if (arr_max[i] % 2 == 0){
-            K -= 1;
-            for (int j = i; j < K; ++j)
-                arr_max[j] = arr_max[j + 1];
+        else{   
+            ++iter;
         }
     }
 
     for (int i = 0; i < K; ++i)
         cout << arr_max[i] << setw(4);
-    
+
     cout << '\n';
 }
 */
+bool checkEven(int arr_max[], int K){
+    //bool flag = false;
+    
+    for (int i = 0; i < K; ++i){
+        if (arr_max[i] % 2 == 0){
+           return true;
+        else 
+            return false 
+    }
+}
+
+/*delete even elements*/
+void delEven(int arr_max[], int K){
+    bool flag = false;
+    
+    if (checkEven(arr, K))
+        for (int i = 0; i < K;){
+            if (arr_max[i] % 2 == 0){
+                //flag = false;
+                for (int j = i; j < K - 1; ++j){
+                    arr_max[j] = arr_max[j + 1];
+                    K--;
+                }
+            }
+            else{
+                i++;
+            }
+        }
+    }
+    if(flag){
+        cout << "No even elements for delete\n";
+    }
+    else {
+    for (int i = 0; i < K; ++i)
+        cout << arr_max[i] << setw(4);
+    }
+    cout << '\n';
+}
+
 /*menu & init variables*/
 void initArrays(){
     int arr1[size1], arr2[size2], arr_max[size1];
