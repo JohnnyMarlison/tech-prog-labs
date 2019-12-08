@@ -109,38 +109,36 @@ bool checkEven(int arr_max[], int K){
     //bool flag = false;
     
     for (int i = 0; i < K; ++i){
-        if (arr_max[i] % 2 == 0){
+        if (arr_max[i] % 2 == 0)
            return true;
         else 
-            return false 
+            return false; 
     }
 }
 
 /*delete even elements*/
 void delEven(int arr_max[], int K){
     bool flag = false;
-    
-    if (checkEven(arr, K))
-        for (int i = 0; i < K;){
-            if (arr_max[i] % 2 == 0){
-                //flag = false;
-                for (int j = i; j < K - 1; ++j){
-                    arr_max[j] = arr_max[j + 1];
-                    K--;
-                }
-            }
-            else{
-                i++;
+
+    for (int i = 0; i < K;){
+        if (arr_max[i] % 2 == 0){
+            for (int j = i; j < K - 1; ++j){
+                arr_max[j] = arr_max[j + 1];
+                K--;
             }
         }
+        else{
+            i++;
+        }
     }
-    if(flag){
-        cout << "No even elements for delete\n";
-    }
-    else {
+
+    // if(flag){
+    //     cout << "No even elements for delete\n";
+    // }
+    // else {
     for (int i = 0; i < K; ++i)
         cout << arr_max[i] << setw(4);
-    }
+    //}
     cout << '\n';
 }
 
