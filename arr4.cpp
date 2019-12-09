@@ -42,8 +42,63 @@ void generateArray(int arr1[], int N, int first, int last){
 
     cout << '\n';
 }
+ /*find last negative*/
+int lastNegative(int arr[], int N){
+    
+    for (int i = N; i > 0; --i){
+        if (arr[i] < 0){
+            return i;
+            //break;
+        }
+    }
+}
 
+bool findPalid(int arr[], int N){
+    int tmp = 0, rev_num;
+/*
+    if (num % 10 == 0 && c >= 10)
+        return false; //nums ended on 0 not palindrom?
+    if (num < 10 && num >= 0)
+        return true; //if nums of one number?
+*/
+    for (int i = 0; i < N; ++i){
+        while (tmp != 0){
+            rev_num = rev_num * 10 + tmp % 10;
+            tmp /= 10;
+        }
+    }
+    if (num == tmp){
+        return true; 
+    }
+    else{
+        return false;
+    }
+}
+
+/*find first palindrom*//*
+bool findPalid(int num){
+    int tmp = num, rev_num;
+
+    if (num % 10 == 0 && c >= 10)
+        return false; //nums ended on 0 not palindrom?
+    if (num < 10 && num >= 0)
+        return true; //if nums of one number?
+
+    while (tmp != 0){
+        rev_num *= 10;   
+        rev_num += tmp%10;
+        tmp = tmp/10;
+    }
+    return (c == rev_c);
+}
+*/
 /*menu & init variables*/
+
+void delElems(int arr[], int N){
+    cout << lastNegative(arr, N) << '\n';
+    cout << lastNegative(arr, N) << '\n';
+}
+
 void initArrays(){
     int arr[size];
     int N, K, cmd, a, b;
@@ -67,7 +122,7 @@ void initArrays(){
             cin >> a >> b;
             cout << '\n';
             generateArray(arr1, N, a, b);
-            
+            delElems(arr, N);
 		break;
 	}
 }
