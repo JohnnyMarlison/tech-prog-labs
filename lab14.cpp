@@ -19,7 +19,7 @@ bool increasNum(int nums){
     }
     return true;
 }
-
+  
 void groups(){
     int indb_1 = 0, inde_1 = 0,
         indb_2 = 0, inde_2 = 0,
