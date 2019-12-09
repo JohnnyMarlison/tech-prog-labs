@@ -64,18 +64,7 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
             }
         }
     }
-    
-    /*
-    for (int i = 0; i < N - 1; i++){
-        for (int j = 0; j < N - i - 1; j++){
-            if(arr1[j] < arr1[j + 1]){
-                tmp = arr1[j];
-                arr1[j] = arr1[j + 1];
-                arr1[j + 1] = tmp; 
-            }
-        }
-    }
-    */;
+
     /*output*/
     for (int i = 0; i < K; ++i){
         arr_max[i] = arr1[i];
@@ -83,63 +72,58 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
     }
     cout << '\n';
 }
-/**//*
-void delEven(int arr_max[], int K){ 
-    int iter = 0;
 
-    while (arr_max[iter] < K){
-        if (arr_max[iter] % 2 == 0){
-            for (int j = iter; j < K;){
-                arr_max[j] = arr_max[j + 1];
-                K--;
-            }
+/**/
+int checkEven(int arr_max[], int K){
+    int count_even = 0,
+        count_no_even = 0;
+
+    for (int i = 0; i < K; ++i){
+        if (arr_max[i] % 2 == 0){
+            count_even += 1;
         }
-        else{   
-            ++iter;
+        else{
+            count_no_even += 1;
         }
     }
 
-    for (int i = 0; i < K; ++i)
-        cout << arr_max[i] << setw(4);
-
-    cout << '\n';
-}
-*/
-bool checkEven(int arr_max[], int K){
-    //bool flag = false;
-    
-    for (int i = 0; i < K; ++i){
-        if (arr_max[i] % 2 == 0)
-           return true;
-        else 
-            return false; 
+    if (count_even == 0){
+        return 0;
+    }
+    else{
+        return 1;
     }
 }
 
 /*delete even elements*/
 void delEven(int arr_max[], int K){
-    bool flag = false;
 
-    for (int i = 0; i < K;){
-        if (arr_max[i] % 2 == 0){
-            for (int j = i; j < K - 1; ++j){
-                arr_max[j] = arr_max[j + 1];
-                K--;
+    if(checkEven(arr_max, K) == 1){
+        for (int i = 0; i < K;){
+            if (arr_max[i] % 2 == 0){
+                for (int j = i; j < K - 1; ++j){
+                    arr_max[j] = arr_max[j + 1];
+                    K--;
+                }
+            }
+            else{
+                i++;
             }
         }
-        else{
-            i++;
-        }
-    }
 
-    // if(flag){
-    //     cout << "No even elements for delete\n";
-    // }
-    // else {
+        for (int i = 0; i < K; ++i)
+            cout << arr_max[i] << setw(4);
+        cout << '\n';
+    }
+    else{
+        cout << "No even elements\n";
+    }
+/*
     for (int i = 0; i < K; ++i)
         cout << arr_max[i] << setw(4);
-    //}
+
     cout << '\n';
+    */
 }
 
 /*menu & init variables*/
