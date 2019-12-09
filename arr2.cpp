@@ -60,7 +60,7 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
                 tmp = arr1[j];
                 arr1[j] = arr1[j + 1];
                 arr1[j + 1] = tmp;
-                flag = false; 
+                flag = false;
             }
         }
     }
@@ -75,33 +75,32 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
 
 /**/
 int checkEven(int arr_max[], int K){
-    int count_even = 0,
-        count_no_even = 0;
+    int count_even = 0;
 
-    for (int i = 0; i < K; ++i){
+    for (int i = 0; i < K; i++){
         if (arr_max[i] % 2 == 0){
-            count_even += 1;
-        }
-        else{
-            count_no_even += 1;
+            count_even++;
         }
     }
 
-    if (count_even == 0){
-        return 0;
+    return count_even;
+/*
+    if (!count_even){
+        return count_even;
     }
     else{
-        return 1;
+        return coun;
     }
+*/
 }
 
 /*delete even elements*/
 void delEven(int arr_max[], int K){
 
-    if(checkEven(arr_max, K) == 1){
+    if(checkEven(arr_max, K) >= 0){
         for (int i = 0; i < K;){
             if (arr_max[i] % 2 == 0){
-                for (int j = i; j < K - 1; ++j){
+                for (int j = i; j < K - 1; j++){
                     arr_max[j] = arr_max[j + 1];
                     K--;
                 }
