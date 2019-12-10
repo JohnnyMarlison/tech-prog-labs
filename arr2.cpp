@@ -79,31 +79,36 @@ int checkEven(int arr_max[], int K){
 
     for (int i = 0; i < K; i++){
         if (arr_max[i] % 2 == 0){
-            count_even++;
+            count_even += 1;
         }
     }
 
-    return count_even;
-/*
-    if (!count_even){
-        return count_even;
+    if (count_even == 0){
+        return 0;
     }
     else{
-        return coun;
+        return 1;
     }
-*/
+}
+
+/*function for translate nums from decimal system to any nums system*/
+unsigned long long int anyNS(unsigned long long int num, unsigned int ns){
+    unsigned long long int S, P;
+
+    for (S = 0, P = 1; num!= 0; S += num % ns * P, P *= 10, num /= ns);
+        return S;
 }
 
 /*delete even elements*/
 void delEven(int arr_max[], int K){
 
-    if(checkEven(arr_max, K) >= 0){
+    if((checkEven(arr_max, K)) > 0){
         for (int i = 0; i < K;){
             if (arr_max[i] % 2 == 0){
                 for (int j = i; j < K - 1; j++){
                     arr_max[j] = arr_max[j + 1];
-                    K--;
                 }
+                K--;
             }
             else{
                 i++;
@@ -117,12 +122,12 @@ void delEven(int arr_max[], int K){
     else{
         cout << "No even elements\n";
     }
-/*
-    for (int i = 0; i < K; ++i)
-        cout << arr_max[i] << setw(4);
 
+    cout << "Octal system:\n"; 
+    for (int i = 0; i < K; ++i){
+        cout << anyNS(arr_max[i], 8) << " ";
+    }
     cout << '\n';
-    */
 }
 
 /*menu & init variables*/
@@ -159,6 +164,7 @@ void initArrays(){
             generateArray(arr1, N, a, b);
             sortDesc(arr1, N, arr_max, K);
             delEven(arr_max, K);
+           // outputOctal(arr_max, K);
 		break;
 	}
 
