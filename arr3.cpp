@@ -27,7 +27,7 @@ void enterArray(int arr1[], int N){
         cout << arr1[i] << setw(4);
 /*menu & init variables*/
     }
-    cout << '\n';
+    cout << '\n'/;
 }
 
 /*function generate array with rand*/
