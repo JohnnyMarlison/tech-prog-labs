@@ -14,37 +14,37 @@ using std::cin;
 using std::setw;
 
 /*function for enter array elements*/
-void enterArray(int arr1[], int N){
+void enterArray(int arr[], int N){
     
     /*input*/
     for (int i = 0; i < N; ++i){
-        cin >> arr1[i];
+        cin >> arr[i];
     }
     cout << '\n';
 
     /*output*/
     for (int i = 0; i < N; ++i){
-        cout << arr1[i] << setw(4);
+        cout << arr[i] << setw(4);
 /*menu & init variables*/
     }
     cout << '\n'/;
 }
 
 /*function generate array with rand*/
-void generateArray(int arr1[], int N, int first, int last){
+void generateArray(int arr[], int N, int first, int last){
     
     /*generate & output*/
     srand(time(0));
     for (int i = 0; i < N; ++i){
         arr1[i] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
-        cout << arr1[i] << setw(4);
+        cout << arr[i] << setw(4);
     }
 
     cout << '\n';
 }
 
 /*find increas num in nums*/
-bool increasNum(int arr[], int N){
+bool increasNum(int nums, int N){
     int prev = nums % 10;
     nums /= 10;
 
@@ -66,30 +66,11 @@ void lastGroup(int arr[], int N){
         count_gr = 0, count = 1;
 
     /*find last group*/
-    cout << "Enter nums:\n";
-    for(cin >> arr[iter]; nums != 0; iter++, cin >> arr[iter]){  
-        /*last group*/
-        if(!flag_group && increasNum(arr[iter])){
-            indb_1 = iter ;
-            flag_group = 1;
-        }
-        if(flag_group && !increasNum(arr[iter])){
-            inde_1 = iter - 1;
-            if (!(inde_1 - indb_1)) {
-                indb_1 = 0;
-                inde_1 = 0;
-            }
-            flag_group = 0;
-        }
-        
-        nums_last = nums;    
-    }    
+    //cout << "Enter nums:\n";
+    for (){
 
-    if (indb_1)
-        cout << "Find last group index: " << indb_1 << " " << inde_1 << "\n";
-    else{
-        cout << "Group not found\n";   
     }
+    
 }
 
 /*menu & init variables*/
@@ -106,7 +87,7 @@ void initArrays(){
 
     switch (cmd) {
 		case 1:
-            enterArray(arr1, N);
+            enterArray(arr, N);
             cout << '\n';
 			
 		break;
@@ -115,7 +96,7 @@ void initArrays(){
             cout << "Enter generate interval:\n";
             cin >> a >> b;
             cout << '\n';
-            generateArray(arr1, N, a, b);
+            generateArray(arr, N, a, b);
             
 		break;
 	}

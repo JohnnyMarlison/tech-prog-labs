@@ -6,13 +6,11 @@
 #include <iostream>
 #include <cmath>
 #include <climits>
-#include <iomanip>
 
 #define size 100
 
 using std::cout;
 using std::cin;
-using std::setw;
 
 /*function for enter array elements*/
 void enterArray(int arr[], int N){
@@ -25,7 +23,7 @@ void enterArray(int arr[], int N){
 
     /*output*/
     for (int i = 0; i < N; ++i){
-        cout << arr[i] << setw(4);
+        cout << arr[i] << "  ";
 /*menu & init variables*/
     }
     cout << '\n';
@@ -38,7 +36,7 @@ void generateArray(int arr[], int N, int first, int last){
     srand(time(0));
     for (int i = 0; i < N; ++i){
         arr[i] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
-        cout << arr[i] << setw(4);
+        cout << arr[i] << "  ";
     }
 
     cout << '\n';
@@ -46,64 +44,60 @@ void generateArray(int arr[], int N, int first, int last){
  /*find last negative*/
 int lastNegative(int arr[], int N){
     
-    for (int i = N - 1; i > 0; --i){
+    for (int i = N; i > 0; --i){
         if (arr[i] < 0){
+            //cout << "Find negative\n";
             return i;
         }
         else{
             return 0;
-        }
-        
+        }  
     }
-}
-
-int kvo_razryad(int M){
-    long int k;
-    for(k = 1; M > 9; M /= 10, k++);
-    return k;
 }
 
 /*find first palindrom*/
-bool findPalid(int arr[], int N){
-    int tmp = 0, rev_num = 0;
-/*
-    if (num % 10 == 0 && c >= 10)
-        return false; //nums ended on 0 not palindrom?
-    if (num < 10 && num >= 0)
-        return true; //if nums of one number?
-*/
-    for (int i = 0; i < N; ++i){
-        tmp = arr[i];
+bool findPalid(int num){
+    int tmp = num, rev_num = 0;
 
-        while (tmp != 0){
-            rev_num = rev_num * 10 + tmp % 10;   
-            //rev_num += tmp % 10;
-            tmp /= 10;
-        }
-    
-  
-        if (rev_num == arr[i]){
-            //return true;
-            break; 
-        }
-        else{
-            return false;
-        }
+    while (tmp != 0 && num > 10){
+        rev_num = (rev_num * 10) + (tmp % 10);
+        tmp /= 10;
     }
 
-    if (rev_num == tmp){
-            return true;
-        }
-        else{
-            return false;
-        }
-    //return (c == rev_c);
+    if (num == rev_num){
+        //cout << "FIND pAlid\n";
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
-
-void delElems(int arr[], int N){
-    cout << lastNegative(arr, N) << '\n';
-    cout << findPalid(arr, N) << '\n';
+/*sort in interval(iter first palindrom, iter last negative)*/
+void sortElems(int arr[], int N){
+    int begin_i = 0, tmp = 0, 
+        end_i = lastNegative(arr, N);
+    
+    for (int i = 0; i < N; ++i){
+        if (findPalid(arr[i]) == 1){
+            begin_i = i;
+            for (begin_i; begin_i < end_i; begin_i++){
+                if (arr[begin_i < arr[begin_i + 1]]){
+                    tmp = arr[begin_i];
+                    arr[begin_i] = arr[begin_i + 1];
+                    arr[begin_i + 1] = tmp;
+                }
+            }
+        }
+        cout << arr[i] << "  ";
+    }
+    /*
+    for (int i = 0; i < N; ++i){
+        cout << arr[i] << "  ";
+    }
+    */
+    cout << '\n';
+    //cout << lastNegative(arr, N) << '\n';
 }
 
 /*menu & init variables*/
@@ -111,7 +105,7 @@ void initArrays(){
     int arr[size];
     int N, K, cmd, a, b;
     
-    cout << "Select array input method: \n\n";
+    cout << "Select array input method:\n\n";
     cout << "1 - Enter array \n";
     cout << "2 - Generate array \n";
     cin >> cmd;
@@ -122,7 +116,7 @@ void initArrays(){
 		case 1:
             enterArray(arr, N);
             cout << '\n';
-			delElems(arr, N);
+			sortElems(arr, N);
 		break;
 
 		case 2:
@@ -130,7 +124,7 @@ void initArrays(){
             cin >> a >> b;
             cout << '\n';
             generateArray(arr, N, a, b);
-            delElems(arr, N);
+            sortElems(arr, N);
 		break;
 	}
 }

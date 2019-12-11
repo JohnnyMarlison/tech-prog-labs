@@ -29,7 +29,6 @@ void enterArray(int arr1[], int N){
     /*output*/
     for (int i = 0; i < N; ++i){
         cout << arr1[i] << setw(4);
-/*menu & init variables*/
     }
     cout << '\n';
 }
@@ -73,13 +72,13 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
     cout << '\n';
 }
 
-/**/
+/*check even elements in array*/
 int checkEven(int arr_max[], int K){
     int count_even = 0;
 
     for (int i = 0; i < K; i++){
         if (arr_max[i] % 2 == 0){
-            count_even += 1;
+            count_even++;
         }
     }
 
@@ -120,9 +119,9 @@ void delEven(int arr_max[], int K){
         cout << '\n';
     }
     else{
-        cout << "No even elements\n";
+        cout << "No even elements\n\n";
     }
-
+    /*output octal system*/
     cout << "Octal system:\n"; 
     for (int i = 0; i < K; ++i){
         cout << anyNS(arr_max[i], 8) << " ";
@@ -164,7 +163,6 @@ void initArrays(){
             generateArray(arr1, N, a, b);
             sortDesc(arr1, N, arr_max, K);
             delEven(arr_max, K);
-           // outputOctal(arr_max, K);
 		break;
 	}
 
