@@ -41,21 +41,24 @@ void generateArray(int arr[], int N, int first, int last){
 
     cout << '\n';
 }
+
  /*find last negative*/
 int lastNegative(int arr[], int N){
-    
+    int result = -1;
     for (int i = N; i > 0; --i){
         if (arr[i] < 0){
-            //cout << "Find negative\n";
-            return i;
+            result = i;
+            break;
         }
-        else{
-            return 0;
-        }  
     }
+
+    if (result >= 0)
+        return result;
+    else
+        cout << "No negative elements!!\n";
 }
 
-/*find first palindrom*/
+/*find first palindrom*//*
 bool findPalid(int num){
     int tmp = num, rev_num = 0;
 
@@ -72,17 +75,50 @@ bool findPalid(int num){
         return 0;
     }
 }
+*/
 
+int findPalid(int arr[], int N){
+    int tmp = 0, rev_num = 0, result = -1;
+
+    for (int i = 0; i < N;){
+        tmp = arr[i];
+
+        while (tmp != 0 && arr[i] > 10){
+            rev_num = (rev_num * 10) + (tmp % 10);
+            tmp /= 10;
+        }
+
+        if (arr[i] == rev_num){
+            result = i;
+            break;
+        }
+        else{
+            i++;
+        }
+    }
+
+
+    if (result >= 0){
+        return result;
+    }
+    else{
+        cout << "No palindrom num\n";
+    }
+}
+
+//cout << "Ping!!!\n";
 /*sort in interval(iter first palindrom, iter last negative)*/
 void sortElems(int arr[], int N){
-    int begin_i = 0, tmp = 0, 
+    int begin_i = findPalid(arr, N), tmp = 0, 
         end_i = lastNegative(arr, N);
-    
+    bool flag = false;
+
+/*
     for (int i = 0; i < N; ++i){
         if (findPalid(arr[i]) == 1){
-            begin_i = i;
-            for (begin_i; begin_i < end_i; begin_i++){
-                if (arr[begin_i < arr[begin_i + 1]]){
+            //cout << arr[i] << '\n';
+            for (begin_i = i; begin_i < end_i; begin_i++){
+                if (arr[begin_i] > arr[begin_i + 1]){
                     tmp = arr[begin_i];
                     arr[begin_i] = arr[begin_i + 1];
                     arr[begin_i + 1] = tmp;
@@ -91,15 +127,25 @@ void sortElems(int arr[], int N){
         }
         cout << arr[i] << "  ";
     }
-    /*
-    for (int i = 0; i < N; ++i){
-        cout << arr[i] << "  ";
-    }
-    */
     cout << '\n';
-    //cout << lastNegative(arr, N) << '\n';
+*/
+    cout << begin_i << '\n';
+    cout << end_i << '\n';
+    while(!flag){
+        flag = true;
+        for (int i = begin_i; i < end_i; i++){
+            if (arr[i] > arr[i + 1]){
+                tmp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = tmp;
+                flag = false;
+            }
+        }
+    }
+    for (int i = 0; i < N; ++i){
+        cout << arr[i] << " ";
+    }
 }
-
 /*menu & init variables*/
 void initArrays(){
     int arr[size];

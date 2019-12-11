@@ -67,7 +67,7 @@ void sortDesc(int arr1[], int N, int arr_max[], int K){
     /*output*/
     for (int i = 0; i < K; ++i){
         arr_max[i] = arr1[i];
-        cout << arr_max[i] << setw(4);;
+        cout << arr_max[i] << setw(4);
     }
     cout << '\n';
 }
