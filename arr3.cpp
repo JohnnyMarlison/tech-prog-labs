@@ -44,7 +44,7 @@ void generateArray(int arr[], int N, int first, int last){
 }
 
 /*find increas num in nums*/
-bool increasNum(int nums, int N){
+bool increasNum(int nums){
     int prev = nums % 10;
     nums /= 10;
 
@@ -58,17 +58,20 @@ bool increasNum(int nums, int N){
     return true;
 }
 
+/*find increas num in nums*/
 void lastGroup(int arr[], int N){
     int indb_1 = 0, inde_1 = 0,
-        flag_group = 0;
+        flag_group = 0, flag_first_found = 0;
     
     int iter = 1, nums, nums_last = 0, 
         count_gr = 0, count = 1;
 
-    /*find last group*/
-    //cout << "Enter nums:\n";
-    for (){
+    for(int i = N; i > 0; --i){
+        if(!flag_first_found){
+            if (increasNum(arr[i])){
 
+            }
+        }
     }
     
 }

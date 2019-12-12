@@ -58,25 +58,7 @@ int lastNegative(int arr[], int N){
         cout << "No negative elements!!\n";
 }
 
-/*find first palindrom*//*
-bool findPalid(int num){
-    int tmp = num, rev_num = 0;
-
-    while (tmp != 0 && num > 10){
-        rev_num = (rev_num * 10) + (tmp % 10);
-        tmp /= 10;
-    }
-
-    if (num == rev_num){
-        //cout << "FIND pAlid\n";
-        return 1;
-    }
-    else{
-        return 0;
-    }
-}
-*/
-
+/*find first palindrom*/
 int findPalid(int arr[], int N){
     int tmp = 0, rev_num = 0, result = -1;
 
@@ -106,31 +88,13 @@ int findPalid(int arr[], int N){
     }
 }
 
-//cout << "Ping!!!\n";
 /*sort in interval(iter first palindrom, iter last negative)*/
 void sortElems(int arr[], int N){
     int begin_i = findPalid(arr, N), tmp = 0, 
         end_i = lastNegative(arr, N);
+    
     bool flag = false;
 
-/*
-    for (int i = 0; i < N; ++i){
-        if (findPalid(arr[i]) == 1){
-            //cout << arr[i] << '\n';
-            for (begin_i = i; begin_i < end_i; begin_i++){
-                if (arr[begin_i] > arr[begin_i + 1]){
-                    tmp = arr[begin_i];
-                    arr[begin_i] = arr[begin_i + 1];
-                    arr[begin_i + 1] = tmp;
-                }
-            }
-        }
-        cout << arr[i] << "  ";
-    }
-    cout << '\n';
-*/
-    cout << begin_i << '\n';
-    cout << end_i << '\n';
     while(!flag){
         flag = true;
         for (int i = begin_i; i < end_i; i++){
