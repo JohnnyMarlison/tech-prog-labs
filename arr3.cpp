@@ -65,25 +65,40 @@ void lastGroup(int arr[], int N){
     int iter = 1, nums_last = 0, 
         count_gr = 0, count = 1;
 
-    for(int i = N; i > 0; --i){
+    for(iter; iter < N; iter++){
         if(!flag_first_found){
-            if (increasNum(arr[i]) && !flag_group){
-                indb_1 = iter ;
+            if (increasNum(arr[iter]) && !flag_group){
+                indb_1 = iter + 1;
                 flag_group = 1;
             }
-            if(flag_group && !increasNum(arr[i])){
+            if(flag_group && !increasNum(arr[iter])){
                 inde_1 = iter - 1;
                 if (inde_1 - indb_1) {
                     flag_first_found = true;
                 } 
-                else {
-                    indb_1 = 0;
-                    inde_1 = 0;
+                // else {
+                //     indb_1 = 0;
+                //     inde_1 = 0;
+                // }
+                flag_group = 0;
+            }
+        }
+        else {
+            /*last group*/
+            if(!flag_group && increasNum(arr[iter])){
+                indb_2 = iter;
+                flag_group = 1;
+            }
+            if(flag_group && !increasNum(arr[iter])){
+                inde_2 = iter - 1;
+                if (!(inde_2 - indb_2)) {
+                    indb_2 = 0;
+                    inde_2 = 0;
                 }
                 flag_group = 0;
             }
         }
-        nums_last = arr[i];
+        nums_last = arr[iter];
     }
 
     if(!flag_first_found) {
@@ -91,7 +106,8 @@ void lastGroup(int arr[], int N){
             inde_1 = iter - 1;
             if (inde_1 - indb_1) {
                 flag_first_found = true;
-            } else {
+            } 
+            else {
                 indb_1 = 0;
                 inde_1 = 0;
             }
@@ -111,8 +127,9 @@ void lastGroup(int arr[], int N){
         cout << "Find first group index: " << indb_1 << " " << inde_1 << "\n";
     if (indb_2)
         cout << "Find last group index: " << indb_2 << " " << inde_2 << "\n";
-    else
+    else{
         cout << "Group not found\n";      
+    }
 }
 
 /*menu & init variables*/

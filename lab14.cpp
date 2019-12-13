@@ -52,7 +52,7 @@ void groups(){
             }
         } 
         else {
-                /*last group*/
+            /*last group*/
             if(!flag_group && increasNum(nums)){
                 indb_2 = iter ;
                 flag_group = 1;
