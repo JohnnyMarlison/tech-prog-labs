@@ -43,7 +43,8 @@ void groups(){
                 inde_1 = iter - 1;
                 if (inde_1 - indb_1) {
                     flag_first_found = true;
-                } else {
+                } 
+                else {
                     indb_1 = 0;
                     inde_1 = 0;
                 }
@@ -66,7 +67,7 @@ void groups(){
 
             }
         }    
-    nums_last = nums;    
+        nums_last = nums;    
     }
 
     /*find first*/

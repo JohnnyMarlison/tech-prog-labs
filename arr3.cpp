@@ -5,13 +5,11 @@
 #include <iostream>
 #include <cmath>
 #include <climits>
-#include <iomanip>
 
 #define size 100
 
 using std::cout;
 using std::cin;
-using std::setw;
 
 /*function for enter array elements*/
 void enterArray(int arr[], int N){
@@ -24,10 +22,10 @@ void enterArray(int arr[], int N){
 
     /*output*/
     for (int i = 0; i < N; ++i){
-        cout << arr[i] << setw(4);
+        cout << arr[i] << " ";
 /*menu & init variables*/
     }
-    cout << '\n'/;
+    cout << '\n';
 }
 
 /*function generate array with rand*/
@@ -36,8 +34,8 @@ void generateArray(int arr[], int N, int first, int last){
     /*generate & output*/
     srand(time(0));
     for (int i = 0; i < N; ++i){
-        arr1[i] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
-        cout << arr[i] << setw(4);
+        arr[i] = ((first + (rand() % (last - first))) + (first + (rand() % (last - first))) / 1000.0);
+        cout << arr[i] << " ";
     }
 
     cout << '\n';
@@ -61,19 +59,60 @@ bool increasNum(int nums){
 /*find increas num in nums*/
 void lastGroup(int arr[], int N){
     int indb_1 = 0, inde_1 = 0,
+        indb_2 = 0, inde_2 = 0,
         flag_group = 0, flag_first_found = 0;
     
-    int iter = 1, nums, nums_last = 0, 
+    int iter = 1, nums_last = 0, 
         count_gr = 0, count = 1;
 
     for(int i = N; i > 0; --i){
         if(!flag_first_found){
-            if (increasNum(arr[i])){
+            if (increasNum(arr[i]) && !flag_group){
+                indb_1 = iter ;
+                flag_group = 1;
+            }
+            if(flag_group && !increasNum(arr[i])){
+                inde_1 = iter - 1;
+                if (inde_1 - indb_1) {
+                    flag_first_found = true;
+                } 
+                else {
+                    indb_1 = 0;
+                    inde_1 = 0;
+                }
+                flag_group = 0;
+            }
+        }
+        nums_last = arr[i];
+    }
 
+    if(!flag_first_found) {
+        if (flag_group) {
+            inde_1 = iter - 1;
+            if (inde_1 - indb_1) {
+                flag_first_found = true;
+            } else {
+                indb_1 = 0;
+                inde_1 = 0;
             }
         }
     }
-    
+    else{
+        if(flag_group) {
+            inde_2 = iter - 1;
+            if (!(inde_2 - indb_2)) {
+                indb_2 = 0;
+                inde_2 = 0;
+            }
+        }
+    }
+
+    if (indb_1)
+        cout << "Find first group index: " << indb_1 << " " << inde_1 << "\n";
+    if (indb_2)
+        cout << "Find last group index: " << indb_2 << " " << inde_2 << "\n";
+    else
+        cout << "Group not found\n";      
 }
 
 /*menu & init variables*/
@@ -81,7 +120,7 @@ void initArrays(){
     int arr[size];
     int N, K, cmd, a, b;
     
-    cout << "Select array input method: \n\n";
+    cout << "Select array input method:\n\n";
     cout << "1 - Enter array \n";
     cout << "2 - Generate array \n";
     cin >> cmd;
@@ -92,7 +131,7 @@ void initArrays(){
 		case 1:
             enterArray(arr, N);
             cout << '\n';
-			
+			lastGroup(arr, N);
 		break;
 
 		case 2:
@@ -100,7 +139,7 @@ void initArrays(){
             cin >> a >> b;
             cout << '\n';
             generateArray(arr, N, a, b);
-            
+            lastGroup(arr, N);
 		break;
 	}
 }
