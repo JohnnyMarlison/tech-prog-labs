@@ -91,8 +91,8 @@ int checkEven(int arr_max[], int K){
 }
 
 /*function for translate nums from decimal system to any nums system*/
-unsigned long long int anyNS(unsigned long long int num, unsigned int ns){
-    unsigned long long int S, P;
+long long int anyNS( long long int num, int ns){
+    long long int S, P;
 
     for (S = 0, P = 1; num!= 0; S += num % ns * P, P *= 10, num /= ns);
         return S;
