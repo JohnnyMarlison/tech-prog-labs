@@ -59,8 +59,8 @@ Complex Complex::operator*(const Complex &c) {
 }
 
 Complex Complex::operator/(const Complex &c) {
-	return Complex( (this->a * c.a + this->b * c.b) / (this->b * this->b + c.b * c.b), 
-					(this->b * c.a - this->a * c.b) / (this->b * this->b + c.b * c.b) );
+	return Complex( (this->a * c.a + this->b * c.b) / (c.a * c.a + c.b * c.b), 
+					(c.a * this->b - this->a * c.b) / (c.a * c.a + c.b * c.b) );
 }
 
 bool Complex::operator==(const Complex &c) {
