@@ -64,10 +64,10 @@ void lastGroup(int arr[], int N){
         indb_2 = 0, inde_2 = 0,
         flag_group = 0, flag_first_found = 0;
 
-    int iter = N - 1, nums, nums_last = 0, 
+    int iter = N - 2, nums_last = 0, 
         count_gr = 0, count = 1;
 
-    for (iter; iter > 0; --iter){
+    for (iter; iter > 0; iter--){
         if(!flag_first_found){
             if(!flag_group && increasNum(arr[iter])) {
                 indb_1 = iter;
@@ -109,7 +109,8 @@ void lastGroup(int arr[], int N){
             inde_1 = iter - 1;
             if (inde_1 - indb_1) {
                 flag_first_found = true;
-            } else {
+            } 
+            else {
                 indb_1 = 0;
                 inde_1 = 0;
             }
