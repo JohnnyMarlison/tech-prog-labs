@@ -37,6 +37,7 @@ void generateArray(int arr[], int N, int first, int last){
         cout << arr[i] << " ";
     }
     cout << '\n';
+   
     /*
     for(int i = 0; i < N; ++i)
         cout << i << " ";

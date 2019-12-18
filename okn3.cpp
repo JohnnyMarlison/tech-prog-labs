@@ -71,7 +71,8 @@ void uSumColumns(int arr[][size], int column[size], int n){
 }
 
 void minSumDiagonal(int arr[][size], int n){
-    int sum = 0, sum1 = 0, sum2 = 0, min1 = abs(arr[0][0]), min2 = abs(arr[n - 1][n - 1]);
+    int sum = 0, sum1 = 0, sum2 = 0, 
+    min1 = abs(arr[0][0]), min2 = abs(arr[n - 1][n - 1]);
 
     /*output 1 triangle*//*
     cout << "1 loop\n";
