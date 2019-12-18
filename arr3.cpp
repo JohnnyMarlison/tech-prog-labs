@@ -61,7 +61,7 @@ bool increasNum(int nums){
 
 /*find increas num in nums*/
 void lastGroup(int arr[], int N) {
-    int flag_group = 0, first_group = 0, second_group = 0
+    int flag_group = 0, first_group = 0, second_group = 0;
 
     for (int i = N; i >= 0; --i) {
         if(flag_group == 0){
@@ -84,15 +84,13 @@ void initArrays(){
 
     switch (cmd) {
 		case 1:
-            enterArray(arr, N);
-            cout << '\n';
+            enterArray(arr, N); cout << '\n';
 			lastGroup(arr, N);
 		break;
 
 		case 2:/*menu & init variables*/
             cout << "Enter generate interval:\n";
-            cin >> a >> b;
-            cout << '\n';
+            cin >> a >> b; cout << '\n';
             generateArray(arr, N, a, b);
             lastGroup(arr, N);
 		break;
