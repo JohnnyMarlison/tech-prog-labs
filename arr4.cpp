@@ -24,7 +24,6 @@ void enterArray(int arr[], int N){
     /*output*/
     for (int i = 0; i < N; ++i){
         cout << arr[i] << "  ";
-/*menu & init variables*/
     }
     cout << '\n';
 }

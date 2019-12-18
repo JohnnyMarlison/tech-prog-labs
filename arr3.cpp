@@ -37,10 +37,11 @@ void generateArray(int arr[], int N, int first, int last){
         cout << arr[i] << " ";
     }
     cout << '\n';
-    
+    /*
     for(int i = 0; i < N; ++i)
         cout << i << " ";
     cout << '\n';
+    */
 }
 
 /*find increas num in nums*/
@@ -48,8 +49,8 @@ bool increasNum(int nums){
     int prev = nums % 10;
     nums /= 10;
 
-    while(nums){
-        if(prev <= nums % 10)
+    while (nums) {
+        if (prev <= nums % 10)
             return false;
         
         prev = nums % 10;
@@ -59,79 +60,13 @@ bool increasNum(int nums){
 }
 
 /*find increas num in nums*/
-void lastGroup(int arr[], int N){
-    int indb_1 = 0, inde_1 = 0,
-        indb_2 = 0, inde_2 = 0,
-        flag_group = 0, flag_first_found = 0;
+void lastGroup(int arr[], int N) {
+    int flag_group = 0, first_group = 0, second_group = 0
 
-    int iter = N - 2, nums_last = 0, 
-        count_gr = 0, count = 1;
+    for (int i = N; i >= 0; --i) {
+        if(flag_group == 0){
 
-    for (iter; iter > 0; iter--){
-        if(!flag_first_found){
-            if(!flag_group && increasNum(arr[iter])) {
-                indb_1 = iter;
-                flag_group = 1;
-            }
-            if(flag_group && !increasNum(arr[iter])){
-                inde_1 = iter - 1;
-                if (inde_1 - indb_1) {
-                    flag_first_found = true;
-                } 
-                else {
-                    indb_1 = 0;
-                    inde_1 = 0;
-                }
-                flag_group = 0;
-            }
         }
-        else {
-            /*last group*/
-            if(!flag_group && increasNum(arr[iter]) && flag_first_found){
-                indb_2 = iter;
-                flag_group = 1;
-            }
-            if(flag_group && !increasNum(arr[iter]) && !flag_first_found){
-                inde_2 = iter - 1;
-                if (!(inde_2 - indb_2)) {
-                    indb_2 = 0;
-                    inde_2 = 0;
-                }
-                flag_group = 0;
-            }
-            break;
-        }
-        nums_last = arr[iter];
-    }
-
-    if(!flag_first_found) {
-        if (flag_group) {
-            inde_1 = iter - 1;
-            if (inde_1 - indb_1) {
-                flag_first_found = true;
-            } 
-            else {
-                indb_1 = 0;
-                inde_1 = 0;
-            }
-        }
-    }
-    else{
-        if(flag_group) {
-            inde_2 = iter - 1;
-            if (!(inde_2 - indb_2)) {
-                indb_2 = 0;
-                inde_2 = 0;
-            }
-        }
-    }
-
-    if (indb_1)
-        cout << "Find first group index: " << inde_1 << " " << indb_1 << "\n";
-    if (indb_2)
-        cout << "Find last group index: " << inde_2 << " " << indb_2 << "\n";
-    else{
-        cout << "Group not found\n";   
     }
 }
 
