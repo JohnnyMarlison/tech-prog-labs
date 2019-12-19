@@ -13,7 +13,7 @@ bool increasNum(int nums){
     nums /= 10;
 
     while(nums){
-        if(prev <= nums % 10)
+        if(prev < nums % 10)
             return false;
         
         prev = nums % 10;

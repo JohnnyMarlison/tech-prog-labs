@@ -97,7 +97,11 @@ void find2min(float arr[][size_2], int n, int m) {
 
     cout << "Minimals: " << min_1 << ' ' << min_2 << '\n';
 }
+/*
+void multiplication(float  ){
 
+}
+*/
 /* A = 3 ⋅ B ⋅ C, Nm * mk = nk*/
 void multiMatrix(float B[][size_2], int N, int M){
     float C[size_1][size_2];
@@ -128,9 +132,9 @@ void multiMatrix(float B[][size_2], int N, int M){
 
     for (int iter_3 = 0; iter_3 < N; ++iter_3) {
         for (int iter_2 = 0; iter_2 < M; ++iter_2 ) {
-            //A[iter_3][iter_2] = 0;
+            A[iter_3][iter_2] = 0;
             for (int iter_1 = 0; iter_1 < K; ++iter_1) {
-                A[iter_3][iter_2] += 3 * B[iter_3][iter_2] * C[iter_2][iter_1]; 
+                A[iter_3][iter_1] = 3 * B[iter_3][iter_2] * C[iter_2][iter_1]; 
             }
         }
     }
@@ -171,7 +175,7 @@ void initMatrix() {
             composElem(arr1, N, M);
             unsigSumElem(arr1, N, M);
             find2min(arr1, N, M);
-
+            multiMatrix(arr1, N, M);
 		break;
 	}
 }

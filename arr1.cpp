@@ -14,8 +14,8 @@
 #define size1 100
 #define size2 200
 
-using std::cin;
 using std::cout;
+using std::cin;
 
 /*function for enter array elements*/
 void enterArray(float arr1[], int N){
