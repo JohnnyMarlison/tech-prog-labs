@@ -98,10 +98,12 @@ void find2min(float arr[][size_2], int n, int m) {
     cout << "Minimals: " << min_1 << ' ' << min_2 << '\n';
 }
 
-/* A = 3 ⋅ B ⋅ C */
-void multiMatrix(float B[][size_2], int n, int M){
+/* A = 3 ⋅ B ⋅ C, Nm * mk = nk*/
+void multiMatrix(float B[][size_2], int N, int M){
     float C[size_1][size_2];
-    int K = 0, a = 0, b = 0;
+    float A[size_1][size_2];
+    int K = 0, cmd = 0;
+    int a = 0, b = 0;
     
     cout << "Enter size matrix C:\n";
     cin >> K;
@@ -120,9 +122,24 @@ void multiMatrix(float B[][size_2], int n, int M){
             cout << "Enter generate interval:\n";
             cin >> a >> b;
             cout << '\n';
-            generateMatrix(c, M, K a, b);
+            generateMatrix(C, M, K, a, b);
 		break;
 	}
+
+    for (int iter_3 = 0; iter_3 < N; ++iter_3) {
+        for (int iter_2 = 0; iter_2 < M; ++iter_2 ) {
+            //A[iter_3][iter_2] = 0;
+            for (int iter_1 = 0; iter_1 < K; ++iter_1) {
+                A[iter_3][iter_2] += 3 * B[iter_3][iter_2] * C[iter_2][iter_1]; 
+            }
+        }
+    }
+
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < K; ++j)
+            cout << A[i][j] << " ";
+        cout << '\n';
+    }
 }
 
 /* menu & init variables*/
