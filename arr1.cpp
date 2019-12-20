@@ -136,8 +136,8 @@ void delElem(float arr3[], int K){
 /*function sum arrays*/
 void sumArrays(float arr1[], float arr2[], int N, int M){
     int K; 
-    K = N + M;
     float arr3[K];
+    K = N + M;
 
     /*sum first array*/
     for(int iter = 0; iter < N; ++iter){
