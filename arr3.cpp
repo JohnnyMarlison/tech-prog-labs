@@ -56,8 +56,7 @@ bool increasNum(int nums){
 void lastGroup(int arr[], int N) {
     int indb_1 = 0, inde_1 = 0,
         indb_2 = 0, inde_2 = 0,
-        flag_group = 0, first_group = 0, second_group = 0,
-        flag_first_found = 0;
+        flag_group = 0, first_group = 0, second_group = 0;
 
     for (int iter = N - 1; iter >= 0; --iter) {
         if (!first_group) {
@@ -105,13 +104,16 @@ void lastGroup(int arr[], int N) {
     
     cout << "\n\n";
     int diff = indb_2 - inde_2;
-    int iter = 0;
-
-        if (indb_2 - inde_2) {
-            N--;
-            for (inde_2;inde_2 < indb_2; inde_2++)
-                arr[inde_2] = arr[inde_2 + 1];
-        }
+    int value = 0;
+    /*
+    while (diff) {
+        if 
+    }   
+    */
+    while (value > 0) {
+        N--;
+        value--;
+    }
 
     for (int i = 0; i < N; ++i)
         cout << arr[i] << " ";

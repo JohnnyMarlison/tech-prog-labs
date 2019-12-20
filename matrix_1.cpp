@@ -128,7 +128,7 @@ void multiMatrix(float B[][size_2], int N, int M){
 
     for (int iter_n = 0; iter_n < N; ++iter_n) {
         for (int iter_m = 0; iter_m < M; ++iter_m) {
-            A[iter_3][iter_2] = 0;
+            A[iter_n][iter_m] = 0;
             for (int iter_k = 0; iter_k < K; ++iter_k) {
                 A[iter_n][iter_m] = 3 * B[iter_n][iter_m] * C[iter_m][iter_k]; 
             }
