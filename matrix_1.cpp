@@ -81,7 +81,7 @@ void unsigSumElem(float arr[][size_2], int n, int m) {
     cout << "Sum:\n" << sum << '\n';
 }
 
-/*find two minimal elements in */
+/*find two minimal elements in*/
 void find2min(float arr[][size_2], int n, int m) {
     float min_1 = arr[0][0], min_2 = arr[0][0];
 
@@ -97,12 +97,8 @@ void find2min(float arr[][size_2], int n, int m) {
 
     cout << "Minimals: " << min_1 << ' ' << min_2 << '\n';
 }
-/*
-void multiplication(float  ){
 
-}
-*/
-/* A = 3 ⋅ B ⋅ C, Nm * mk = nk*/
+/*A = 3 ⋅ B ⋅ C, 3 * N x M * M x K = N x K*/
 void multiMatrix(float B[][size_2], int N, int M){
     float C[size_1][size_2];
     float A[size_1][size_2];
@@ -130,11 +126,11 @@ void multiMatrix(float B[][size_2], int N, int M){
 		break;
 	}
 
-    for (int iter_3 = 0; iter_3 < N; ++iter_3) {
-        for (int iter_2 = 0; iter_2 < M; ++iter_2 ) {
+    for (int iter_n = 0; iter_n < N; ++iter_n) {
+        for (int iter_m = 0; iter_m < M; ++iter_m) {
             A[iter_3][iter_2] = 0;
-            for (int iter_1 = 0; iter_1 < K; ++iter_1) {
-                A[iter_3][iter_1] = 3 * B[iter_3][iter_2] * C[iter_2][iter_1]; 
+            for (int iter_k = 0; iter_k < K; ++iter_k) {
+                A[iter_n][iter_m] = 3 * B[iter_n][iter_m] * C[iter_m][iter_k]; 
             }
         }
     }

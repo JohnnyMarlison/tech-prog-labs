@@ -64,7 +64,7 @@ bool increasNum(int nums){
 void lastGroup(int arr[], int N) {
     int flag_group = 0, first_group = 0, second_group = 0;
 
-    for (int i = N; i >= 0; --i) {
+    for (int i = N; i > 0; --i) {
         if(flag_group == 0){
 
         }
