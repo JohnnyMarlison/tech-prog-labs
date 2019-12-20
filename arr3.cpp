@@ -103,21 +103,17 @@ void lastGroup(int arr[], int N) {
         cout << "Group not found\n"; 
     
     cout << "\n\n";
-    int diff = indb_2 - inde_2;
-    int value = 0;
-    /*
-    while (diff) {
-        if 
-    }   
-    */
-    while (value > 0) {
-        N--;
-        value--;
-    }
 
+    for (int i = 0; i < inde_2; ++i) {
+        cout << arr[i] << " ";
+    }
+    for (int i = indb_2 + 1; i < N; ++i) {
+        cout << arr[i] << " ";
+    }
+/*
     for (int i = 0; i < N; ++i)
         cout << arr[i] << " ";
-
+*/
     cout << "\n\n";
 }
 
