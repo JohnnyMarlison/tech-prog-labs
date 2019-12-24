@@ -8,8 +8,10 @@
 элемент. DONE
 */
 
-#include<iostream>
-#include<ctime>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 #define size1 100
 #define size2 200
@@ -68,8 +70,8 @@ double sumElem(float arr1[], int N){
     for(int iter = 0; iter < N; ++iter){
         if(iter % 2 != 0){
             sum += arr1[iter];
-    }
         }
+    }
     return sum;
 }
 
@@ -136,8 +138,8 @@ void delElem(float arr3[], int K){
 /*function sum arrays*/
 void sumArrays(float arr1[], float arr2[], int N, int M){
     int K; 
-    float arr3[K];
     K = N + M;
+    float arr3[size2];
 
     /*sum first array*/
     for(int iter = 0; iter < N; ++iter){

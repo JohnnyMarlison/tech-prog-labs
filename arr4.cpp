@@ -78,7 +78,6 @@ int findPalid(int arr[], int N){
         }
     }
 
-
     if (result >= 0){
         return result;
     }
@@ -94,6 +93,7 @@ void sortElems(int arr[], int N){
     
     bool flag = false;
 
+    //cout << end_i << '\n';
     while(!flag){
         flag = true;
         for (int i = begin_i; i < end_i; i++){
@@ -106,8 +106,9 @@ void sortElems(int arr[], int N){
         }
     }
     for (int i = 0; i < N; ++i){
-        cout << arr[i] << " ";
+        cout << arr[i] << "  ";
     }
+    cout << '\n';
 }
 /*menu & init variables*/
 void initArrays(){

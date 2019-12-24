@@ -66,7 +66,7 @@ void composElem(float arr[][size_2], int n, int m) {
         for (int iter2 = 0; iter2 < m; ++iter2) 
             composition *= arr[iter][iter2];
 
-    cout << "Composition:\n" << composition << '\n';
+    cout << "Composition: " << composition << '\n';
 }
 
 /*sum positive elements in matrix*/
@@ -161,6 +161,8 @@ void initMatrix() {
             cout << '\n';
             composElem(arr1, N, M);
             unsigSumElem(arr1, N, M);
+            find2min(arr1, N, M);
+            multiMatrix(arr1, N, M);
 		break;
 
 		case 2:
